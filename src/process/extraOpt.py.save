@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+
+from fishubuia import Interfaz
+import pickle as pk
+import cv2
+
+ia = Interfaz()
+
+def opt(key, value, output="/"):
+      # Esta función es configurada manualmente por el programador
+    pos, esq = ia.obtenerPosicion(value, 2)
+    # Hacemos un pickle de la posición
+    pk.dump(pos, os.path.join(output,"pos_"+str(key))+".pickle")
+    #Intentamos guardar pos en un fichero 
+    cv2.imwrite(os.path.join(FOLDER,str(img[0])+".jpg"), img[1])
+
+    return key, esq
