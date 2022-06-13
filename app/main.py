@@ -10,6 +10,7 @@ import os
 from tkVideoPlayer import TkinterVideo
 
 from MiddleWindow import MiddleWindow
+from PredictWindow import PredictWindow
 
 class Window(object):
    """
@@ -71,6 +72,9 @@ class Window(object):
         self.root.geometry('1366x868')
         self.root.title('Extracción de ejercicios')
         self.middleWindw = MiddleWindow(self)
+        self.predictWindow = PredictWindow(self)
+        self.selectVideo1 = []
+        self.selectVideo2 = []
 
         #Pie de página
         self.tittlebar = ttk.Label(self.root, 
@@ -121,9 +125,9 @@ class Window(object):
         self.buttonAdd2= ttk.Button(self.root, text='Añadir',command=lambda:self.middleWindw.addplayVideo(2))
         self.buttonAdd2.place(relx=0.43,rely=0.27)
 
-        self.buttonDel1= ttk.Button(self.root, text='Eliminar',command=self.middleWindw.delVideo)
+        self.buttonDel1= ttk.Button(self.root, text='Descartar',command=lambda:self.middleWindw.delVideo(1))
         self.buttonDel1.place(relx=0.18,rely=0.3)
-        self.buttonDel2= ttk.Button(self.root, text='Eliminar',command=self.middleWindw.delVideo)
+        self.buttonDel2= ttk.Button(self.root, text='Descartar',command=lambda:self.middleWindw.delVideo(2))
         self.buttonDel2.place(relx=0.43,rely=0.3)
          
         #Se crean las casillas donde se localizarán los vídeos 
@@ -147,7 +151,7 @@ class Window(object):
         self.textFrameEnd.place(relx=0.82,rely=0.25,relheight=0.05,relwidth=0.07)
 
         #Ponemos un botón para convertir
-        self.convert = ttk.Button(self.root, text="Recortar")
+        self.convert = ttk.Button(self.root, text="Recortar",command=self.predictWindow.showVideo)
         self.convert.place(relx=0.55,rely=0.6)
         
         #Añadimos botones play, stop y pause al final de la ejecución 

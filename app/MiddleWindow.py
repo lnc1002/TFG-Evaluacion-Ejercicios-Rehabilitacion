@@ -61,7 +61,8 @@ class MiddleWindow():
         """
         if self.window.togglebutton.config('text')[-1] == 'ON':
             #Si existe algún vídeo cargado lo elimina
-            self.delVideo()
+            self.delVideo(1)
+            self.delVideo(2)
             #Desbloquean las casillas de frame
             self.window.textFrameBegin.config(state="normal")
             self.window.textFrameEnd.config(state="normal")
@@ -75,7 +76,8 @@ class MiddleWindow():
 
             
         else:
-            self.delVideo()
+            self.delVideo(1)
+            self.delVideo(2)
             self.window.textFrameBegin.config(state="disabled",background="red")
             self.window.textFrameEnd.config(state="disabled",background="red")
             #Se vacían las listas de vídeos 
@@ -87,27 +89,38 @@ class MiddleWindow():
             self.window.togglebutton.config(text='ON')
 
 
-    def delVideo(self):
+    def delVideo(self,value):
         """
         Se tiene que borrar el vídeo que se está reproduciendo
         """
-        self.window.showVideo1.destroy()
-        self.showVideo1 = TkinterVideo(master=self.window.root, scaled=True)
-        self.showVideo1.place(relx=0.05,rely=0.4,relheight=0.45,relwidth=0.2)
+        if value == 1:
+            self.window.showVideo1.load(0)
+            self.window.showVideo1.config(state="disabled")
+        else:
+            self.window.showVideo2.load(0)
+            self.window.showVideo2.config(state="disabled")
+        # self.window.showVideo1.destroy()
+        # self.showVideo1 = TkinterVideo(master=self.window.root, scaled=True)
+        # self.showVideo1.place(relx=0.05,rely=0.4,relheight=0.45,relwidth=0.2)
 
-        self.window.showVideo2.destroy()
-        self.showVideo2 = TkinterVideo(master=self.window.root, scaled=True)
-        self.showVideo2.place(relx=0.3,rely=0.4,relheight=0.45,relwidth=0.2)
+        # self.window.showVideo2.destroy()
+        # self.showVideo2 = TkinterVideo(master=self.window.root, scaled=True)
+        # self.showVideo2.place(relx=0.3,rely=0.4,relheight=0.45,relwidth=0.2)
 
         #Añadir las del video resultado
 
     def addplayVideo(self,value):
+        
         if value == 1:
+            self.window.showVideo1.config(state="normal")
             index=self.window.playvideo1box.curselection()[0]
+            self.window.selectVideo1=index
             self.window.showVideo1.load(self.window.playlistSpecific[index])
             self.window.showVideo1.play()
         else:
+            self.window.showVideo2.config(state="normal")
             index2 = self.window.playvideo2box.curselection()[0]
+            self.window.selectVideo2=index2
             self.window.showVideo2.load(self.window.playlistFull[index2])
             self.window.showVideo2.play()
 
