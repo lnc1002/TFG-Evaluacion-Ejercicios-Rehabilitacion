@@ -11,6 +11,7 @@ Modo Ejemplo = Recortar según los pickle cargados
 Modo NO Ejemplo = recortar según los frames indicados
 ¿Hacer un botón guardar?
 """
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 
 class PredictWindow():
     """
@@ -26,12 +27,19 @@ class PredictWindow():
         """
         Lo primero que se tendrá que comprobar es si 
         """
-        #Se sacal los vídeos de las casillas show
-        video1 = self.window.showVideo1 #Analizar este parámetro current_duration
-        print("algo")
-        print(self.window.selectVideo1) #self.window.playlistSpecific[index]
-        video2 = self.window.showVideo1
-        #if self.window.togglebutton.config('text')[-1] == 'ON':
-            #Modo ejemplo (ON)
+        #1) Recortarlo 2) Guardarlo en una variable 3) Mostrarlo con el load + play
+        #Los vídeos están a 30fps
+
+        if self.window.togglebutton.config('text')[-1] == 'OFF':
+            #Modo (OFF)
+            index=self.window.selectVideo2
+            start_time=30/int(self.window.textFrameBegin.get())
+            end_time=30/int(self.window.textFrameEnd.get())
+            print(start_time, end_time)
+            #Esto creo que me crea otro víde en targetname
+            ffmpeg_extract_subclip(self.window.playlistFull[index], start_time, end_time,targetname="Recorte1.mp4")
+            self.window.showVideo3.load("Recorte.mp4")
+            self.window.showVideo3.play()
         #else:
-            #Modo demo (OFF)
+            #Modo (ON)
+            #Recortar según los frames obtenidos con el programa

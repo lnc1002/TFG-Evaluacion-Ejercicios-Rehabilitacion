@@ -150,4 +150,3 @@ class MiddleWindow():
             self.window.showVideo1.stop()
         elif value==2:
             self.window.showVideo2.stop()
-        #Else, stop video resultado

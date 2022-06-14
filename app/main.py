@@ -140,7 +140,10 @@ class Window(object):
 
         #Se crea la casilla del video resultado
         self.videoResult = ttk.Label(self.root, text='Video resultado',font='Calibri 14',background='#F7F7F7').place(relx=0.75,rely=0.37)
-        self.showVideo3 = ttk.Label(self.root, relief=RAISED).place(relx=0.7,rely=0.4,relheight=0.45,relwidth=0.2)
+        #self.showVideo3 = ttk.Label(self.root, relief=RAISED).place(relx=0.7,rely=0.4,relheight=0.45,relwidth=0.2)
+
+        self.showVideo3 = TkinterVideo(master=self.root, scaled=True)
+        self.showVideo3.place(relx=0.7,rely=0.4,relheight=0.45,relwidth=0.2)
 
         #Habilitamos unas casillas para indicar los frames por los que se recortará
         self.frameBegin = ttk.Label(self.root, text='Frame incicio').place(relx=0.72,rely=0.22)
