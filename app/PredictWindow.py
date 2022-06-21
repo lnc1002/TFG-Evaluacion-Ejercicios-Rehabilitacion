@@ -12,6 +12,7 @@ Modo NO Ejemplo = recortar según los frames indicados
 ¿Hacer un botón guardar?
 """
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+from moviepy.video.io.VideoFileClip import VideoFileClip
 
 class PredictWindow():
     """
@@ -21,7 +22,11 @@ class PredictWindow():
     def __init__(self, window):
         self.window = window 
 
-    #def cutVideo(self):
+    def cutVideo(self,index,start,end):
+        ffmpeg_extract_subclip(self.window.playlistFull[index], start, end,targetname="Recorte2.mp4")
+        #Guardar losvídeos recortados en una carpeta y con un nombre concreto
+        self.window.showVideo3.load("Recorte2.mp4")
+        self.window.showVideo3.play()
 
     def showVideo(self):
         """
@@ -33,13 +38,30 @@ class PredictWindow():
         if self.window.togglebutton.config('text')[-1] == 'OFF':
             #Modo (OFF)
             index=self.window.selectVideo2
-            start_time=30/int(self.window.textFrameBegin.get())
-            end_time=30/int(self.window.textFrameEnd.get())
-            print(start_time, end_time)
+            clip = VideoFileClip(self.window.playlistFull[index])
+            start_time=int(self.window.textFrameBegin.get())*int(clip.duration) / 960
+            end_time=int(self.window.textFrameEnd.get())*int(clip.duration) / 960
+            
+            
+            print(int(self.window.textFrameBegin.get()),int(self.window.textFrameEnd.get()), start_time, end_time, clip.duration, clip.fps) 
+            #Con clip.duration sabemos la duración del video y con clip.fps los fps que tiene el video. 
+            #Ahora nos queda saber cuandos frames genera y hacer la regla de 3
             #Esto creo que me crea otro víde en targetname
-            ffmpeg_extract_subclip(self.window.playlistFull[index], start_time, end_time,targetname="Recorte1.mp4")
-            self.window.showVideo3.load("Recorte.mp4")
-            self.window.showVideo3.play()
-        #else:
+            
+            self.cutVideo(index,start_time,end_time)
+
+        else:
             #Modo (ON)
             #Recortar según los frames obtenidos con el programa
+            index=self.window.selectVideo2
+            if index == 0:
+                clip = VideoFileClip(self.window.playlistSpecific[0])
+                print(clip.duration, clip.fps)
+                self.cutVideo(index,2,12)
+
+            elif index == 1:
+                self.cutVideo(index,12,22)
+            elif index == 2:
+                self.cutVideo(index,2,12)
+            elif index == 3:
+                self.cutVideo(index,12,22)

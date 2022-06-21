@@ -130,9 +130,11 @@ class MiddleWindow():
         """
         if value == 1:
             self.window.showVideo1.play()
-        else:
+        elif value == 2:
             self.window.showVideo2.play()
-        #Else, play video resultado
+        else:
+            self.window.showVideo3.play()
+         
 
     def pauseVideo(self,value):
         """
@@ -140,9 +142,11 @@ class MiddleWindow():
         """
         if value == 1: 
             self.window.showVideo1.pause()
-        else:
+        elif value == 2:
             self.window.showVideo2.pause()
-        #Else, pause video resultado
+        else:
+            self.window.showVideo3.pause()
+
 
     def stopVideo(self,value):
         ""
@@ -150,3 +154,5 @@ class MiddleWindow():
             self.window.showVideo1.stop()
         elif value==2:
             self.window.showVideo2.stop()
+        else:
+            self.window.showVideo2.pause()
