@@ -3,13 +3,11 @@ Created on Wed Jun x 2022
 
 @author: Lucía Núñez
 """
-
-#from curses import window
 from doctest import master
 from email.mime import image
 import os
 from sre_parse import State
-from turtle import width
+from turtle import bgcolor, width
 import cv2
 from cv2 import VideoCapture
 import imutils
@@ -23,19 +21,43 @@ from PIL import Image, ImageTk
 from tkinter import ttk
 from tkvideo import tkvideo
 from tkVideoPlayer import TkinterVideo
-#from pygame import mixer
 import imageio
 
 class MiddleWindow():
     """
-    Clase mediadora. Esta clase se encarga de la comunicación entre ...
+    Clase mediadora. Esta clase se encarga de la comunicación entre los elementos que se muestran en la ventana de inicio.
+    Esta clase actúa sobre los eventos de carga y reproducción de vídeos.
+    Contiene diversos métodos para el funcionamiento de las característicar requeridas.
+
+    authora: Lucía Núñez
+    
+    Atributos
+    ----------
+    window : Window
+        Objeto de tipo Window que soporta la parte gráfica de la aplicación.
+
     """
     def __init__(self, window):
+        """
+        Constructor de la clase MiddleWindow que nos proporciona los métodos necesários para la carga y reproducción de vídeo
+        
+        Parametros
+        ----------
+        window : Window
+            Instancia de la clase que crea la ventana.
+        """
         self.window = window 
 
     def showExample(self,filedirectory,playbox,value,path):
         """
-        Sirve para mostrar los videos sin la ruta completa S
+        Función que muestra los vídeos sin la ruta completa de los mismos. Sirve para mostrar los videos sin la ruta completa S
+
+        Parametros
+        ----------
+        filedirectory : Directorio en el que se localizan los vídeos. 
+        playbox : lista en la que se van a mostrar los vídeos.
+        value : Informa sobre en que lista se va a guardar el vídeo cargado, si en la lista de los vídeos específicos o en la lista de vídeos concretos.
+        path : Ruta completa en la que se localizan los vídeos.
         """
         for i,f in enumerate(filedirectory): 
             playbox.insert("end", f"{os.path.basename(f).split('.')[0]}")
@@ -45,12 +67,32 @@ class MiddleWindow():
                 self.window.playlistFull.insert(i,path+f)
 
 
-
-    def addPlayList(self,filename):
-        self.window.playlist.insert(self.window.index, filename)
+    #def addPlayList(self,filename):
     
-    def updateMode(self):
-        ""
+    #    self.window.playlist.insert(self.window.index, filename)
+    
+    def colourButton(self,text):
+        """
+        Función que implementa el cambio de color de los diferentes botones al cambiar el modo de ejecución
+
+        Parametros
+        ----------
+        text : especifica el modo que se va a establecer 
+        """
+        if text=="OFF":
+            colour='#EEE8AA'
+            self.window.togglebutton.config(text='OFF',bg='#EEE8AA')
+        else:
+            colour='#B0E2FF'
+            self.window.togglebutton.config(text='ON',bg='#B0E2FF')
+
+        self.window.buttonAdd1.config(bg=colour)
+        self.window.buttonAdd2.config(bg=colour)
+        self.window.buttonDel1.config(bg=colour)
+        self.window.buttonDel2.config(bg=colour)
+        self.window.playvideo1box.config(bg=colour)
+        self.window.playvideo2box.config(bg=colour)
+
 
     def simpletoggle(self):
         """
@@ -72,26 +114,34 @@ class MiddleWindow():
             #Muestra los vídeos correspondientes 
             self.showExample(os.listdir('VideosConcretos_Ej_OFF'),self.window.playvideo1box,'S',os.path.abspath('VideosConcretos_Ej_OFF')+'\\')
             self.showExample(os.listdir('VideosCompletos_Ej_OFF'),self.window.playvideo2box,'F',os.path.abspath('VideosCompletos_Ej_OFF')+'\\')
-            self.window.togglebutton.config(text='OFF')
+            #self.window.togglebutton.config(text='OFF',bg='#EEE8AA')
+            self.colourButton("OFF")
 
             
         else:
+            #Si existe algún vídeo cargado lo elimina
             self.delVideo(1)
             self.delVideo(2)
-            self.window.textFrameBegin.config(state="disabled",background="red")
-            self.window.textFrameEnd.config(state="disabled",background="red")
+            #Bloquean las casillas de frame
+            self.window.textFrameBegin.config(state="disabled")
+            self.window.textFrameEnd.config(state="disabled")
             #Se vacían las listas de vídeos 
             self.window.playvideo1box.delete(0,END)
             self.window.playvideo2box.delete(0,END)
             #Muestra los vídeos correspondientes
             self.showExample(os.listdir('VideosConcretos_Ej_ON'),self.window.playvideo1box,'S',os.path.abspath('VideosConcretos_Ej_ON')+'\\')
             self.showExample(os.listdir('VideosCompletos_Ej_ON'),self.window.playvideo2box,'F',os.path.abspath('VideosCompletos_Ej_ON')+'\\')
-            self.window.togglebutton.config(text='ON')
+            #self.window.togglebutton.config(text='ON',bg='#B0E2FF')
+            self.colourButton("ON")
 
 
     def delVideo(self,value):
         """
-        Se tiene que borrar el vídeo que se está reproduciendo
+        Esta función no llega a eliminar el video que se está emitiendo pero si que lo bloquea
+
+        Parametros
+        ----------
+        value : Valor que indica el vídeo que se desea eliminar
         """
         if value == 1:
             self.window.showVideo1.load(0)
@@ -99,18 +149,19 @@ class MiddleWindow():
         else:
             self.window.showVideo2.load(0)
             self.window.showVideo2.config(state="disabled")
-        # self.window.showVideo1.destroy()
-        # self.showVideo1 = TkinterVideo(master=self.window.root, scaled=True)
-        # self.showVideo1.place(relx=0.05,rely=0.4,relheight=0.45,relwidth=0.2)
 
-        # self.window.showVideo2.destroy()
-        # self.showVideo2 = TkinterVideo(master=self.window.root, scaled=True)
-        # self.showVideo2.place(relx=0.3,rely=0.4,relheight=0.45,relwidth=0.2)
-
-        #Añadir las del video resultado
 
     def addplayVideo(self,value):
-        
+        """
+        Esta función muestra y reproduce el vídeo seleccionado
+
+        Parametros
+        ----------
+        value : Valor que indica el vídeo que se desea mostrar
+        """
+       # self.delVideo(value)
+        print(self.window.showVideo1,self.window.selectVideo1)
+
         if value == 1:
             self.window.showVideo1.config(state="normal")
             index=self.window.playvideo1box.curselection()[0]
@@ -127,18 +178,34 @@ class MiddleWindow():
 
     def playVideo(self,value):
         """
+        Esta función reproduce el vídeo seleccionado
+
+        Parametros
+        ----------
+        value : Valor que indica el vídeo que se desea reproducir
         """
-        if value == 1:
-            self.window.showVideo1.play()
-        elif value == 2:
-            self.window.showVideo2.play()
-        else:
-            self.window.showVideo3.play()
+        try:
+            if value == 1:
+                try:
+                    self.window.showVideo1.play()
+                except:
+                    tkinter.messagebox.showerror('Vídeo no selecionado', 'No hay ningun vídeo seleccionado.')
+
+            elif value == 2:
+                self.window.showVideo2.play()
+            else:
+                self.window.showVideo3.play()
+        except:
+            tkinter.messagebox.showerror('Vídeo no selecionado', 'No hay ningun vídeo seleccionado.')
          
 
     def pauseVideo(self,value):
         """
-        Pausa el vídeo
+        Esta función pausa el vídeo seleccionado
+
+        Parametros
+        ----------
+        value : Valor que indica el vídeo que se desea pausar
         """
         if value == 1: 
             self.window.showVideo1.pause()
@@ -149,10 +216,30 @@ class MiddleWindow():
 
 
     def stopVideo(self,value):
-        ""
+        """
+        Esta función para el vídeo seleccionado, hace la función de "stop", una vez se pulsa, el vídeo volverá a 
+        reproducirse desde el inicio en caso de que posteriormente se pulse el "play"
+
+        Parametros
+        ----------
+        value : Valor que indica el vídeo que se desea parar
+        """
         if value == 1:
             self.window.showVideo1.stop()
         elif value==2:
             self.window.showVideo2.stop()
         else:
             self.window.showVideo2.pause()
+
+    def about_us(self):
+        """
+        Esta función muestra un mensaje de información sobre la autoría del proyecto.
+        """
+        tkinter.messagebox.showinfo('Proyecto', 'Trabajo Fin de Grado.\n\nTipo de proyecto: Proyecto de investigación sobre la detección de ejercicios \n\nAlumno: Lucía Núñez \n\nTutores: José Francisco Díez Pastor, José Miguel Ramírez Sanz, José Luis Garrido Labrador')
+        
+    def mode(self):
+        """
+        Esta función muestra un mensaje de información sobre los modos de ejecución de la aplicación.
+        """
+        tkinter.messagebox.showinfo('Modo ejemplo','Modo ejemplo ON: El modo ejemplo servirá para presentar una muestra visual de lo obtenido durante el proyecto al tribunal del TFG. \n\nModo ejemplo OFF: Este modo ha sido utilizado para comprobar el correcto funcionamiento del programa y es el que se podrá implementar más adelante para ser usado por terapeutas')
+    

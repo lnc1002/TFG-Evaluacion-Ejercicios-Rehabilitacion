@@ -1,10 +1,11 @@
 from asyncio.base_tasks import _task_get_stack
 #from distutils.cmd import Command
 from lib2to3.pgen2.token import LEFTSHIFT
+import tkinter as tk
 from tkinter import ttk #_Relief
 from tkinter import font  as tkfont 
 from tkinter import *
-from turtle import bgcolor
+from turtle import backward, bgcolor
 from PIL import Image, ImageTk
 import os
 from tkVideoPlayer import TkinterVideo
@@ -76,6 +77,10 @@ class Window(object):
         self.selectVideo1 = []
         self.selectVideo2 = []
 
+        #Etiquetas de estilo
+        style = ttk.Style()
+        style.configure("BW.Blue", background="Red")
+
         #Pie de página
         self.tittlebar = ttk.Label(self.root, 
                                     text="Reconocimiento de ejercicios completos en pacientes con la enfermedad de Parkinson", 
@@ -84,16 +89,32 @@ class Window(object):
         self.tittlebar.pack(side=BOTTOM, fill=X)
 
         #Configuración del color de fondo
-        self.root['bg'] = '#F7F7F7'
+        self.root['bg'] = 	'#E0EEEE' #'#F7F7F7'
+
+        # Create the menubar
+        self.menubar = Menu(self.root)
+        self.root.config(menu=self.menubar)
+        
+        # Create the submenu
+        subMenu = Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="Ayuda", menu=subMenu)
+        subMenu.add_command(label="Proyecto", command=self.middleWindw.about_us)
+        subMenu.add_command(label="Modo ejemplo", command=self.middleWindw.mode)
+
+
+        #Cabecera superior con color
+        self.colourSup = tk.Frame(self.root, bg='#66CDAA').place(relheight=0.15,relwidth=1)
+        #self.colourLeft = tk.Frame(self.root, bg='#EEC591').place(relheight=1,relwidth=0.02)
+
 
         self.root.title("Parkinson Detection Exercises")
 
-        self.title = ttk.Label(self.root, text='Detección de ejercicios',font='Calibri 25',background='#F7F7F7').place(relx=0.38, rely=0.04)
+        self.title = ttk.Label(self.root, text='Detección de ejercicios',font='Calibri 28',background='#66CDAA').place(relx=0.38, rely=0.04)
 
         #Modo ejemplo
-        self.modeExample = ttk.Label(self.root, text='Modo ejemplo',font='Calibri 15',background='#F7F7F7').place(relx=0.04,rely=0.1)
-        self.togglebutton =ttk.Button(self.root, text="ON", command=self.middleWindw.simpletoggle)
-        self.togglebutton.place(relx=0.14,rely=0.1)
+        self.modeExample = ttk.Label(self.root, text='Modo ejemplo',font='Calibri 18',background='#66CDAA').place(relx=0.04,rely=0.1)
+        self.togglebutton =tk.Button(self.root, text="ON", bg = '#B0E2FF',command=self.middleWindw.simpletoggle)
+        self.togglebutton.place(relx=0.16,rely=0.11,relwidth=0.05)
 
         # Se debe guardar la ruta completa junto con el nombre del fichero
         #self.playlistSpecific = []
@@ -102,11 +123,11 @@ class Window(object):
         self.playlistFull = []
         #self.index = 0 #iniciamos el indice que se usará en la lista
         #Se crean un par de listas para que el usuario pueda escoger los vídeos
-        self.specificVideoLoad = ttk.Label(self.root, text='Videos concretos cargados',font='Calibri 12',background='#F7F7F7').place(relx=0.045,rely=0.22)
-        self.playvideo1box = Listbox(self.root, relief=RAISED,background='#FEB8A9',font='Calibri 12')
+        self.specificVideoLoad = ttk.Label(self.root, text='Videos concretos cargados',font='Calibri 14',background='#E0EEEE').place(relx=0.046,rely=0.21)
+        self.playvideo1box = Listbox(self.root, relief=RAISED,background='#B0E2FF',font='Calibri 12')
         self.playvideo1box.place(relx=0.05,rely=0.25,relheight=0.1,relwidth=0.12)
-        self.fullVideoLoad = ttk.Label(self.root, text='Videos completos cargados',font='Calibri 12',background='#F7F7F7').place(relx=0.295,rely=0.22)
-        self.playvideo2box = Listbox(self.root, relief=RAISED,font='Calibri 12')
+        self.fullVideoLoad = ttk.Label(self.root, text='Videos completos cargados',font='Calibri 14',background='#E0EEEE').place(relx=0.296,rely=0.21)
+        self.playvideo2box = Listbox(self.root, relief=RAISED,background='#B0E2FF',font='Calibri 12')
         self.playvideo2box.place(relx=0.3,rely=0.25,relheight=0.1,relwidth=0.12)
 
         #Cargamos los ejemplos que se encuentran en los diferentes directorios
@@ -120,64 +141,66 @@ class Window(object):
            self.playvideo2box.insert("end", f"{os.path.basename(f).split('.')[0]}") 
            self.playlistFull.insert(i,os.path.abspath('VideosCompletos_Ej_ON')+'\\'+f)
         
-        self.buttonAdd1= ttk.Button(self.root, text='Añadir',command=lambda:self.middleWindw.addplayVideo(1))
-        self.buttonAdd1.place(relx=0.18,rely=0.27)
-        self.buttonAdd2= ttk.Button(self.root, text='Añadir',command=lambda:self.middleWindw.addplayVideo(2))
-        self.buttonAdd2.place(relx=0.43,rely=0.27)
+        self.buttonAdd1= tk.Button(self.root, text='Mostrar',font='Calibri 12',bg='#B0E2FF',command=lambda:self.middleWindw.addplayVideo(1))
+        self.buttonAdd1.place(relx=0.18,rely=0.255,relwidth=0.055)
+        self.buttonAdd2= tk.Button(self.root, text='Mostrar',font='Calibri 12',bg='#B0E2FF',command=lambda:self.middleWindw.addplayVideo(2))
+        self.buttonAdd2.place(relx=0.43,rely=0.255,relwidth=0.055)
 
-        self.buttonDel1= ttk.Button(self.root, text='Descartar',command=lambda:self.middleWindw.delVideo(1))
+        self.buttonDel1= tk.Button(self.root, text='Descartar',font='Calibri 12',bg='#B0E2FF',command=lambda:self.middleWindw.delVideo(1))
         self.buttonDel1.place(relx=0.18,rely=0.3)
-        self.buttonDel2= ttk.Button(self.root, text='Descartar',command=lambda:self.middleWindw.delVideo(2))
+        self.buttonDel2= tk.Button(self.root, text='Descartar',font='Calibri 12',bg='#B0E2FF',command=lambda:self.middleWindw.delVideo(2))
         self.buttonDel2.place(relx=0.43,rely=0.3)
          
         #Se crean las casillas donde se localizarán los vídeos 
-        self.specificVideo = ttk.Label(self.root, text='Video concreto',font='Calibri 14',background='#F7F7F7').place(relx=0.1,rely=0.37)
+        self.specificVideo = ttk.Label(self.root, text='Video concreto',font='Calibri 14',background='#E0EEEE').place(relx=0.1,rely=0.36)
         self.showVideo1 = TkinterVideo(master=self.root, scaled=True)
         self.showVideo1.place(relx=0.05,rely=0.4,relheight=0.45,relwidth=0.2)
-        self.fullVideo = ttk.Label(self.root, text='Video completo',font='Calibri 14',background='#F7F7F7').place(relx=0.35,rely=0.37)
+        self.fullVideo = ttk.Label(self.root, text='Video completo',font='Calibri 14',background='#E0EEEE').place(relx=0.35,rely=0.36)
         self.showVideo2 = TkinterVideo(master=self.root, scaled=True)
         self.showVideo2.place(relx=0.3,rely=0.4,relheight=0.45,relwidth=0.2)
 
         #Se crea la casilla del video resultado
-        self.videoResult = ttk.Label(self.root, text='Video resultado',font='Calibri 14',background='#F7F7F7').place(relx=0.75,rely=0.37)
+        self.videoResult = ttk.Label(self.root, text='Video resultado',font='Calibri 14',background='#E0EEEE').place(relx=0.75,rely=0.36)
         #self.showVideo3 = ttk.Label(self.root, relief=RAISED).place(relx=0.7,rely=0.4,relheight=0.45,relwidth=0.2)
 
         self.showVideo3 = TkinterVideo(master=self.root, scaled=True)
         self.showVideo3.place(relx=0.7,rely=0.4,relheight=0.45,relwidth=0.2)
 
         #Habilitamos unas casillas para indicar los frames por los que se recortará
-        self.frameBegin = ttk.Label(self.root, text='Frame incicio').place(relx=0.72,rely=0.22)
-        self.textFrameBegin = ttk.Entry(self.root,state="disabled")
+        self.frameBegin = ttk.Label(self.root, text='Frame incicio',font='Calibri 14',background='#E0EEEE').place(relx=0.72,rely=0.22)
+        self.textFrameBegin = tk.Entry(self.root,state="disabled",font='Calibri 14',background='#EEE8AA')
         self.textFrameBegin.place(relx=0.72,rely=0.25,relheight=0.05,relwidth=0.07)
-        self.frameEnd = ttk.Label(self.root, text='Frame final').place(relx=0.82,rely=0.22)
-        self.textFrameEnd = ttk.Entry(self.root,state="disabled")
+        self.frameEnd = ttk.Label(self.root, text='Frame final',font='Calibri 14',background='#E0EEEE').place(relx=0.82,rely=0.22)
+        self.textFrameEnd = tk.Entry(self.root,state="disabled",font='Calibri 14',background='#EEE8AA')
         self.textFrameEnd.place(relx=0.82,rely=0.25,relheight=0.05,relwidth=0.07)
 
+
         #Ponemos un botón para convertir
-        self.convert = ttk.Button(self.root, text="Recortar",command=self.predictWindow.showVideo)
-        self.convert.place(relx=0.55,rely=0.6)
-        
+        self.convert = tk.Button(self.root, text="Recortar",font='Calibri 14',bg='#66CDAA',command=self.predictWindow.showVideo)
+        self.convert.place(relx=0.57,rely=0.6,relheight=0.06,relwidth=0.06)
+
+
         #Añadimos botones play, stop y pause al final de la ejecución 
-        self.play1 = ttk.Button(self.root, text='play',command=lambda:self.middleWindw.playVideo(1))
-        self.play1.place(relx=0.05, rely=0.86)
-        self.pause1 = ttk.Button(self.root, text='pause',command=lambda:self.middleWindw.pauseVideo(1))
-        self.pause1.place(relx=0.12, rely=0.86)
-        self.stop1 = ttk.Button(self.root, text='stop',command=lambda:self.middleWindw.stopVideo(1))
-        self.stop1.place(relx=0.19, rely=0.86)
+        self.play1 = tk.Button(self.root, text='play',bg='#79CDCD', command=lambda:self.middleWindw.playVideo(1))
+        self.play1.place(relx=0.05, rely=0.86, relwidth=0.06)
+        self.pause1 = tk.Button(self.root, text='pause',bg='#8DEEEE',command=lambda:self.middleWindw.pauseVideo(1))
+        self.pause1.place(relx=0.12, rely=0.86, relwidth=0.06)
+        self.stop1 = tk.Button(self.root, text='stop',bg='#97FFFF',command=lambda:self.middleWindw.stopVideo(1))
+        self.stop1.place(relx=0.19, rely=0.86, relwidth=0.06)
 
-        self.play2 = ttk.Button(self.root, text='play',command=lambda:self.middleWindw.playVideo(2))
-        self.play2.place(relx=0.3, rely=0.86)
-        self.pause2 = ttk.Button(self.root, text='pause',command=lambda:self.middleWindw.pauseVideo(2))
-        self.pause2.place(relx=0.37, rely=0.86)
-        self.stop2 = ttk.Button(self.root, text='stop',command=lambda:self.middleWindw.stopVideo(2))
-        self.stop2.place(relx=0.44, rely=0.86)
+        self.play2 = tk.Button(self.root, text='play',bg='#79CDCD',command=lambda:self.middleWindw.playVideo(2))
+        self.play2.place(relx=0.3, rely=0.86, relwidth=0.06)
+        self.pause2 = tk.Button(self.root, text='pause',	bg='#9370DB',command=lambda:self.middleWindw.pauseVideo(2))
+        self.pause2.place(relx=0.37, rely=0.86, relwidth=0.06)
+        self.stop2 = tk.Button(self.root, text='stop',bg='#EEA9B8',command=lambda:self.middleWindw.stopVideo(2))
+        self.stop2.place(relx=0.44, rely=0.86, relwidth=0.06)
 
-        self.play3 = ttk.Button(self.root, text='play',command=lambda:self.middleWindw.playVideo(3))
-        self.play3.place(relx=0.7, rely=0.86)
-        self.pause3 = ttk.Button(self.root, text='pause',command=lambda:self.middleWindw.pauseVideo(3))
-        self.pause3.place(relx=0.76, rely=0.86)
-        self.stop3 = ttk.Button(self.root, text='stop',command=lambda:self.middleWindw.stopVideo(3))
-        self.stop3.place(relx=0.83, rely=0.86)
+        self.play3 = tk.Button(self.root, text='play',bg='#79CDCD',command=lambda:self.middleWindw.playVideo(3))
+        self.play3.place(relx=0.7, rely=0.86, relwidth=0.06)
+        self.pause3 = tk.Button(self.root, text='pause',bg='#9370DB',command=lambda:self.middleWindw.pauseVideo(3))
+        self.pause3.place(relx=0.77, rely=0.86, relwidth=0.06)
+        self.stop3 = tk.Button(self.root, text='stop',bg='#EEA9B8',command=lambda:self.middleWindw.stopVideo(3))
+        self.stop3.place(relx=0.84, rely=0.86, relwidth=0.06)
       
         self.root.mainloop()
 
