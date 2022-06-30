@@ -56,13 +56,18 @@ class Interfaz():
 
         #Si no se encuentran los puntos lanzar excepción
         if len(pkP)==0:
-            raise Exception("No se ha detectado posición")
+            #Comprobamos antes si todos son 0, es decir, si se trata de la imagen en negro
+	    if (np.count_nonzero(pkP) == 0)
+                shutil.copy("/mnt/data/posiciones.pickle'","/mnt/data/posicionesFINALES.pickle'")
+            else:
+                raise Exception("No se ha detectado posición")
         if len(pkP[0])==17:
             x = pkP[0][:,0].cpu().numpy()
             y = pkP[0][:,1].cpu().numpy()
             pos = Posicion(x,y)
             ang = pos.todosAngulos
             posT = pos.todasPos
+            
         #Si no existen exactamente 17 puntos la posición es erronea
         else:
             raise Exception("Posición erronea")

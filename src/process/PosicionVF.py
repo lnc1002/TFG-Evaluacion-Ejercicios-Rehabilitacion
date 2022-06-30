@@ -44,6 +44,26 @@ class Posicion():
         self.todosAngulos = self.devuelveAngulos()
         self.todasPos = devuelvePos()
 
+    #Función que permite almacenar los ángulos de un esqueleto
+    #return vector con las posiciones de los ángulos del esqueleto
+    def devuelveAngulos(self):
+        return [self.angCuelloSupI, self.angCuelloSupD, self.angCodoI, self.angCodoD, self.angHombroI, self.angHombroD, self.angCaderaI, self.angCaderaD, self.angCaderaTorsoI, self.angCaderaTorsoD,self.angRodillaI, self.angRodillaD]
+
+    #Función que permite almacenar todas las posiciones relativas a un esqueleto
+    #return matriz con las posiciones del esqueleto.
+    def devuelvePos(self):
+        return [self.nariz, self.hombroI, self.hombroD, self.cuello, [self.angCuelloSupI,0], [self.angCuelloSupD,0], self.codoI, self.codoD, self.manoI, self.manoD, [self.angCodoI,0],[self.angCodoD,0],[self.angHombroI,0],[self.angHombroD,0],self.caderaI,self.caderaD,self.cadera,self.rodillaI ,self.rodillaD ,[self.angCaderaI,0],[self.angCaderaD ,0],[self.angCaderaTorsoI ,0],[self.angCaderaTorsoD ,0],self.tobilloI ,self.tobilloD ,[self.angRodillaI,0],[self.angRodillaD,0]]
+
+    #Función que permite almacenar parte de las posiciones superiores del esqueleto
+    #return matriz con las posiciones superiores del esqueleto 
+    def devuelvePosSuperiores(self):
+        return [self.nariz,self.hombroI,self.hombroD,self.cuello,[self.angCuelloSupI,0],[self.angCuelloSupD,0],self.codoI,self.codoD,self.manoI,self.manoD,[self.angCodoI,0],[self.angCodoD,0],[self.angHombroI,0], [self.angHombroD,0]] 
+
+    #Función que permite almacenar parte de las posiciones inferiores del esqueleto 
+    #return matriz con las posiciones inferiores del esqueleto 
+    def devuelvePosInferiores(self):
+        return [self.caderaI, self.caderaD,self.rodillaI, self.rodillaD,[self.angCaderaI,0], [self.angCaderaD,0],self.tobilloI, self.tobilloD ,[self.angRodillaI,0] ,[self.angRodillaD,0]]
+
     #Función que permite calcular el punto medio entre dos puntos
     #param p1: punto 1
     #param p2: punto 2
@@ -107,10 +127,3 @@ class Posicion():
                 ang = 360 - ang
         
         return ang
-
-    #Función que permite devolver todos ós ángulos
-    def devuelveAngulos(self):
-        return [self.angCuelloSupI, self.angCuelloSupD, self.angCodoI, self.angCodoD, self.angHombroI, self.angHombroD, self.angCaderaI, self.angCaderaD, self.angCaderaTorsoI, self.angCaderaTorsoD, self.angRodillaI, self.angRodillaD]
-
-    def devuelvePos(self):
-        return [self.nariz, self.hombroI, self.hombroD, self.cuello, [self.angCuelloSupI,0], [self.angCuelloSupD,0], self.codoI, self.codoD, self.manoI, self.manoD, [self.angCodoI,0], [self.angCodoD,0],[self.angHombroI,0],[self.angHombroD,0],self.caderaI,self.caderaD,self.cadera,self.rodillaI ,self.rodillaD ,[self.angCaderaI,0],[self.angCaderaD ,0],[self.angCaderaTorsoI ,0],[self.angCaderaTorsoD ,0],self.tobilloI ,self.tobilloD ,[self.angRodillaI,0],[self.angRodillaD,0]]

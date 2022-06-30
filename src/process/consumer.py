@@ -143,22 +143,6 @@ options = {"bootstrap.servers": KAFKA_HOST,
 
 kafkaStream = KafkaUtils.createDirectStream(ssc, [TOPIC], options, valueDecoder=deserializer)
 
-#Parece que esto se va a poder borrar
-def an(package):
-    argv_reader()
-    k = package[0]
-    img = package[1]
-    if img is not None and k is not None:
-        try:
-            a = ang_(k, img, FOLDER)
-            np.savetxt('test2.txt', a)
-        except:
-            traceback.print_exc()
-            lg.debug(traceback.format_exc())
-            lg.error("Hubo un error procesando la imagen "+str(k))
-            with open("/logs/notprocesslog","a") as f:
-                f.writelines(traceback.format_exc())
-    return a
 
 def op(package):
     argv_reader()
