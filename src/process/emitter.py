@@ -84,11 +84,17 @@ if __name__ == "__main__":
     
     try:
         video = cv2.VideoCapture(FILE)
+        long_video = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 	
         while True:
             # El vídeo de emite siempre en bucle ya que representa
             # Un vídeo real que no pararía
-            success, frame = video.read()
+            if countR==(long_video-1): #No generaría el último frame, en su defecto una imagen en negro
+                frame = np.zeros([1920,1080,3],dtype=np.uint8)
+                frame.fill(0)
+            else:
+            	success, frame = video.read()
+            
             if frame is not None:
                 if RESIZE != 1.0:
                     frame = cv2.resize(frame, (0,0), fx=RESIZE, fy=RESIZE)
