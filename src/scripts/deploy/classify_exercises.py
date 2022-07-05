@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 from tslearn.metrics import dtw_subsequence_path
 
-def parte(array,p,x_y):
+def parte(array,p,x_y): #extract
     """
     Esta función descompone cada una de las posiciones que se le pasa
     Entrada

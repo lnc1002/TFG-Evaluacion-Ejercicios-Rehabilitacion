@@ -1,0 +1,7 @@
+imageio==2.9.0
+imutils==0.5.4
+moviepy==1.0.3
+opencv_python==4.5.5.64
+Pillow==9.2.0
+tkvideo==0.1
+tkVideoPlayer==2.2
