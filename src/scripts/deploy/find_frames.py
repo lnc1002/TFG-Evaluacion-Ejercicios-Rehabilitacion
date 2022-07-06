@@ -2,18 +2,30 @@ import argparse
 import statistics
 import pickle
 import numpy as np
+import time
 from tslearn.metrics import dtw_subsequence_path
+
+def cutFrames(array_puntos_largo):
+    array_puntos=[]
+    guardar=0
+    for ang in array_puntos_largo:
+        guardar=guardar+1
+        if guardar==3:
+            guardar=0
+        else:
+            array_puntos.append(ang)
+    return array_puntos
 
 def findFrames(pk_short,pk_long):
     """
     Esta función retornará el frame de inicio y final del ejecercicio concreto dentro de la secuencia larga
     """
     #Lo primero será convertir los pickle en array
-    long_seq = np.array(pk_long).flatten()
-    short_seq = np.array(pk_short).flatten()
+    #long_seq = np.array(pk_long).flatten()
+    #short_seq = np.array(pk_short).flatten()
 
     #Eliminamos los valores nulos de la secuencia larga
-    long_seq = long_seq[~np.isnan(long_seq)]
+    #long_seq = long_seq[~np.isnan(long_seq)]
 
     #Comprobar más adelante cuanto hay que recortar los frames
 
@@ -22,6 +34,7 @@ def findFrames(pk_short,pk_long):
     path=np.array(path)
     a_ast = path[0, 1]
     b_ast = path[-1, 1]
+
 
     print("El Ejercicio comienza en el frame =",a_ast)
     print("El Ejercicio finaliza en el frame =",b_ast)
@@ -72,6 +85,25 @@ def openPickle(file):
     #print(data_list)
     return data_list
 
+def del_cero(array):
+    """
+    Función que descarta los valores igual a cero.
+    
+    Parámetros de entrada
+    ---------------------
+    array= Secuencia de la que se pretende eliminar los ceros
+    
+    Salida
+    ------
+    Retorna la misma secuencia de entrada pero con los valores igual a cero descartados.
+    """
+    p1=[]
+    
+    for p in array:
+        if p != 0.0:
+            p1.append(p)
+    return np.array(p1)
+
 def main():
     parser = argparse.ArgumentParser()
     #Creamos el primer argumento que recibirá un pickle
@@ -80,12 +112,37 @@ def main():
     parser.add_argument("pk2")
     args = parser.parse_args()
 
+    #Se carga el archivo
     pk_short=openPickle(args.pk1)
     pk_long=openPickle(args.pk2)
 
-    findFrames(pk_short,pk_long)
+    #Se sacan los frames totales del vídeo
+    frames_2d=len(pk_long)
 
-    classifyExercise(pk_short)
+    #Se eleminan los ceros 
+    pk_short1=del_cero(np.array(pk_short).flatten())
+    pk_long1=del_cero(np.array(pk_long).flatten())
+    print(len(pk_long1))
+
+    #Elimina los nulos
+    pk_long = pk_long[~np.isnan(pk_long)]
+    
+    #Recorta los frames
+    pk_short2=cutFrames(pk_short1)
+    pk_long2=cutFrames(pk_long1)
+
+    #Se guarda la longitud larga ¿?
+    #frames_1d=len(pk_long)
+    print(pk_long2)
+    
+    inicio = time.time()
+    #Se procede a la búsqueda de la secuencia
+    findFrames(pk_short2,pk_long2)
+    fin = time.time()
+
+    print("time",fin-inicio)
+    #Finalmente se clasifica el ejercicio
+    #classifyExercise(pk_short)
 
 if __name__ == '__main__':
     main()
