@@ -1,13 +1,13 @@
 # TFG-Evaluacion-Ejercicios-Rehabilitacion
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
-![GitHub repo size](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion.git) 
+
 ## Visión artificial para la evaluación de ejercicios de rehabilitación
 Uso de la metodología **Dynamic Time Warping** para la detección de ejercicios en personas con enfermedades neurodegenerativas (Parkinson).
 Trabajo de fin de grado de Ingeniería Informática realizado en la **Universidad de Burgos**. Minería de datos aplicada a la diagnosis del Parkinson.
 
-* Autora: *Lucía Núñez Calvo
-* Tutores: *Dr. José Francisco Diez Pastor*, *D. José Miguel Ramírez  Sanz y *D. José Luís Garrido Labrador
+* Autora: *Lucía Núñez Calvo*
+* Tutores: *Dr. José Francisco Diez Pastor*, *D. José Miguel Ramírez  Sanz* y *D. José Luís Garrido Labrador*
 
 ---
 
