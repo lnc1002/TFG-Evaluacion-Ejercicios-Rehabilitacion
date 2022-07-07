@@ -123,12 +123,7 @@ if __name__ == "__main__":
                 if while_ <= 1: # En caso contrario ya se habrá esperado
                     sleep(INTERVAL)
             else:
-                #Cuando termina el video genera un frame totalmente negro
-                frame = 255*np.ones((6,8,3),np.uint8)
-                frame = cv2.resize(frame, (0,0), fx=RESIZE, fy=RESIZE)
-                shutil.copy('angulos.txt','/home/lnc1002/angulos.txt')
-                break 
-                #video = cv2.VideoCapture(FILE)
+                video = cv2.VideoCapture(FILE)
             
 
     except (KeyboardInterrupt, SystemExit):

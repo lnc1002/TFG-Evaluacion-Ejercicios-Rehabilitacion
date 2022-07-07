@@ -2,6 +2,7 @@
 
 # Versión 3.0 clase posición reducida
 # Autor: José Miguel Ramírez Sanz
+# Funciones añadidas por Lucía Núñez Calvo
 
 #imports
 import numpy as np

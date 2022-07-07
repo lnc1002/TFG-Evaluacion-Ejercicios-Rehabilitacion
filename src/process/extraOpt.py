@@ -8,7 +8,7 @@ ia = Interfaz()
 
 def opt(key, value, output="/"):
     pos, esq, ang, posT  = ia.obtenerPosicion(value, 2)
-    with open('posiciones.pickle', 'ab') as f:
+    with open('/mnt/data/posiciones.pickle', 'ab') as f:
         pickle.dump(posT, f)
     return key, esq
 
