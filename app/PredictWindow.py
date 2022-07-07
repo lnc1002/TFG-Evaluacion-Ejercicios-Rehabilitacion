@@ -1,5 +1,5 @@
 """
-Created on Wed Jun x 2022
+Created on Wed Jun 8 2022
 
 @author: Lucía Núñez
 """
@@ -50,44 +50,44 @@ class PredictWindow():
 
     def showVideo(self):
         """
-        Función que permite mostrar el recorte generado.
+        Función que permite mostrar el recorte generado. Para ello, recortará el vídeo, se guardará en el resultado generado
+        y posteriormente se visualizará en la casilla corespondiente al vídeo resultado. 
         El recorte deberá de ser guardado 
         """
-        #1) Recortarlo 2) Guardarlo en una variable 3) Mostrarlo con el load + play
-        #Los vídeos están a 30fps
         try : 
             if self.window.togglebutton.config('text')[-1] == 'OFF':
                 index=self.window.selectVideo2
                 clip = VideoFileClip(self.window.playlistFull[index])
-                #El total de frames se ha de sacar del vídeo largo, es decir, del que hay que recortar
                 frames = int(clip.fps * clip.duration)
-                start_time=int(self.window.textFrameBegin.get())*int(clip.duration) / frames #11381 # 960
-                print(start_time, self.window.showVideo2.pause() )
-                end_time=int(self.window.textFrameEnd.get())*int(clip.duration) / frames #11381 # 960
-                
-                
-                print(int(self.window.textFrameBegin.get()),int(self.window.textFrameEnd.get()), start_time, end_time, clip.duration, clip.fps) 
-                #Con clip.duration sabemos la duración del video y con clip.fps los fps que tiene el video. 
-                #Ahora nos queda saber cuandos frames genera y hacer la regla de 3
-                #Esto creo que me crea otro víde en targetname
-                
+                #Se realiza una regla de tres para obtener el segundo de recorte a partir de los frames especificados
+                start_time=int(self.window.textFrameBegin.get())*int(clip.duration) / frames 
+                end_time=int(self.window.textFrameEnd.get())*int(clip.duration) / frames 
                 self.cutVideo(index,start_time,end_time)
 
             else:
                 #Modo (ON)
                 #Recortar según los frames obtenidos con el programa
-                index=self.window.selectVideo2
-                if index == 0:
+                index1=self.window.selectVideo1
+                index2=self.window.selectVideo2
+                if index1 == 0:
+                    #Ejercicio 1
                     clip = VideoFileClip(self.window.playlistSpecific[0])
-                    print(clip.duration, clip.fps)
-                    self.cutVideo(index,2,12)
-
-                elif index == 1:
-                    self.cutVideo(index,12,22)
-                elif index == 2:
-                    self.cutVideo(index,2,12)
-                elif index == 3:
-                    self.cutVideo(index,12,22)
+                    self.cutVideo(index2,6.84,32.48)
+                elif index1 == 3:
+                    #Ejercicio 9
+                    clip = VideoFileClip(self.window.playlistSpecific[0])
+                    self.cutVideo(index2,8.64,24.7)
+                elif index1 == 1:
+                    #Ejercicio 22
+                    clip = VideoFileClip(self.window.playlistSpecific[0])
+                    self.cutVideo(index2,4.83,35.30)
+                elif index1 == 2:
+                    #Ejercicio 23
+                    clip = VideoFileClip(self.window.playlistSpecific[0])
+                    self.cutVideo(index2,17.14,50.64)
         except:
-            tkinter.messagebox.showerror('Frames no especificados', 'No se han especificado correctamente los frames de inicio y final del vídeo.')
+            if self.window.togglebutton.config('text')[-1] == 'OFF':
+                tkinter.messagebox.showerror('Frames no especificados', 'No se han especificado correctamente los frames de inicio y final del vídeo.')
+            else:
+                tkinter.messagebox.showerror('Vídeos no especificados', 'No se han especificado correctamente los vídeos, seleccione un vídeo concreto y un vídeo completo por favor.')
 

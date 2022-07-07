@@ -1,5 +1,5 @@
 """
-Created on Wed Jun x 2022
+Created on Wed Jun 1 2022
 
 @author: Lucía Núñez
 """
@@ -8,20 +8,15 @@ from email.mime import image
 import os
 from sre_parse import State
 from turtle import bgcolor, width
-import cv2
 from cv2 import VideoCapture
-import imutils
-import time
 import tkinter.messagebox
 from tkinter import *
 from tkinter import filedialog
 from PIL import Image, ImageTk
-
-
 from tkinter import ttk
 from tkvideo import tkvideo
 from tkVideoPlayer import TkinterVideo
-import imageio
+
 
 class MiddleWindow():
     """
@@ -66,10 +61,6 @@ class MiddleWindow():
             else:
                 self.window.playlistFull.insert(i,path+f)
 
-
-    #def addPlayList(self,filename):
-    
-    #    self.window.playlist.insert(self.window.index, filename)
     
     def colourButton(self,text):
         """
@@ -80,18 +71,55 @@ class MiddleWindow():
         text : especifica el modo que se va a establecer 
         """
         if text=="OFF":
-            colour='#EEE8AA'
-            self.window.togglebutton.config(text='OFF',bg='#EEE8AA')
+            #lila
+            color_play='#B8A0C9'
+            color_pause='#C2ADD1'
+            color_stop='#D0BBDE'
+            color_backg='#F1E3FB'
+            colour_button='#DEBBF5'
+            colour_cab='#CB8CF5'
+            self.window.togglebutton.config(text='OFF',bg='#DEBBF5')
         else:
-            colour='#B0E2FF'
+            color_play='#79CDCD'
+            color_pause='#8DEEEE'
+            color_stop='#97FFFF'
+            color_backg='#E0EEEE'
+            colour_button='#B0E2FF'
+            colour_cab='#66CDAA'
             self.window.togglebutton.config(text='ON',bg='#B0E2FF')
 
-        self.window.buttonAdd1.config(bg=colour)
-        self.window.buttonAdd2.config(bg=colour)
-        self.window.buttonDel1.config(bg=colour)
-        self.window.buttonDel2.config(bg=colour)
-        self.window.playvideo1box.config(bg=colour)
-        self.window.playvideo2box.config(bg=colour)
+        #Botones principales
+        self.window.buttonAdd1.config(bg=colour_button)
+        self.window.buttonAdd2.config(bg=colour_button)
+        self.window.buttonDel1.config(bg=colour_button)
+        self.window.buttonDel2.config(bg=colour_button)
+        self.window.playvideo1box.config(bg=colour_button)
+        self.window.playvideo2box.config(bg=colour_button)
+        #Botones play/pause/stop
+        self.window.play1.config(bg=color_play)
+        self.window.play2.config(bg=color_play)
+        self.window.play3.config(bg=color_play)
+        self.window.pause1.config(bg=color_pause)
+        self.window.pause2.config(bg=color_pause)
+        self.window.pause3.config(bg=color_pause)
+        self.window.stop1.config(bg=color_stop)
+        self.window.stop2.config(bg=color_stop)
+        self.window.stop3.config(bg=color_stop)
+        #Fondos de las Labels
+        self.window.title.config(bg=colour_cab)
+        self.window.modeExample.config(bg=colour_cab)
+        self.window.specificVideoLoad.config(bg=color_backg)
+        self.window.fullVideoLoad.config(bg=color_backg)
+        self.window.specificVideo.config(bg=color_backg)
+        self.window.fullVideo.config(bg=color_backg)
+        self.window.videoResult.config(bg=color_backg)
+        self.window.frameBegin.config(bg=color_backg)
+        self.window.frameEnd.config(bg=color_backg)
+        #Cabecera y botón de recortar
+        self.window.colourSup.config(bg=colour_cab)
+        self.window.convert.config(bg=colour_cab)
+        #Color de fondo
+        self.window.root['bg'] = color_backg
 
 
     def simpletoggle(self):
@@ -114,7 +142,6 @@ class MiddleWindow():
             #Muestra los vídeos correspondientes 
             self.showExample(os.listdir('VideosConcretos_Ej_OFF'),self.window.playvideo1box,'S',os.path.abspath('VideosConcretos_Ej_OFF')+'\\')
             self.showExample(os.listdir('VideosCompletos_Ej_OFF'),self.window.playvideo2box,'F',os.path.abspath('VideosCompletos_Ej_OFF')+'\\')
-            #self.window.togglebutton.config(text='OFF',bg='#EEE8AA')
             self.colourButton("OFF")
 
             
@@ -131,7 +158,6 @@ class MiddleWindow():
             #Muestra los vídeos correspondientes
             self.showExample(os.listdir('VideosConcretos_Ej_ON'),self.window.playvideo1box,'S',os.path.abspath('VideosConcretos_Ej_ON')+'\\')
             self.showExample(os.listdir('VideosCompletos_Ej_ON'),self.window.playvideo2box,'F',os.path.abspath('VideosCompletos_Ej_ON')+'\\')
-            #self.window.togglebutton.config(text='ON',bg='#B0E2FF')
             self.colourButton("ON")
 
 
@@ -159,9 +185,6 @@ class MiddleWindow():
         ----------
         value : Valor que indica el vídeo que se desea mostrar
         """
-       # self.delVideo(value)
-        print(self.window.showVideo1,self.window.selectVideo1)
-
         if value == 1:
             self.window.showVideo1.config(state="normal")
             index=self.window.playvideo1box.curselection()[0]
@@ -186,11 +209,7 @@ class MiddleWindow():
         """
         try:
             if value == 1:
-                try:
-                    self.window.showVideo1.play()
-                except:
-                    tkinter.messagebox.showerror('Vídeo no selecionado', 'No hay ningun vídeo seleccionado.')
-
+                self.window.showVideo1.play()
             elif value == 2:
                 self.window.showVideo2.play()
             else:
