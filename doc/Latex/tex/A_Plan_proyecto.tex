@@ -1,0 +1,547 @@
+\apendice{Plan de Proyecto Software}
+
+\section{Introducción}
+
+La planificación de un proyecto es una fase fundamental para su correcto desarrollo. En este apartado se comentará, por una parte, la planificación temporal del proyecto mediante los distintos \textit{sprints} que se han llevado a cabo, y por otra parte, se realizará un breve estudio sobre la viabilidad del proyecto.
+
+En este proyecto se ha utilizado la metodología ágil \textit{Scrum}, esta metodología tiene como objetivo base la creación de diferentes iteraciones o \textbf{sprints} \cite{trigas2012metodologia}. Para una correcta planificación, se optó por realizar \textit{sprints} de dos o tres semanas de duración. Aunque las reuniones se realizaban semanalmente, los objetivos se planteaban con un margen de varias semanas y en las reuniones posteriores se iban comentando las dudas y los avances. 
+
+
+\begin{enumerate}
+    \item \textbf{Planificación Temporal}, se expondrán las diferentes tareas realizadas en cada uno de los \textit{sprint}, acompañadas del coste estimado que se propuso para ellas y el coste final que implicó su realización. 
+    \item \textbf{Estudio de viabilidad}, en este apartado se comprobará si el proyecto realizado tiene una viabilidad legal y económica.
+\end{enumerate}
+\newpage
+\section{Planificación temporal}
+La planificación temporal se ha dividido en distintos \textit{sprints} de dos o tres semanas de duración cada uno, en los cuales se realizaron distintas tareas y reuniones. Las reuniones se realizaban semanalmente informando de las tareas realizadas y los problemas surgidos, a lo que aportaban distintas soluciones y tareas nuevas. 
+
+
+\subsection{Sprint 0:  Noviembre - Enero}
+
+El \textit{sprint 0} consistió en una primera toma de contacto con el proyecto que abarcó desde Noviembre del año 2021 a Enero del año 2022. En estos meses se realizaron reuniones periódicas cada dos semanas con el objetivo de comprender el proyecto de los alumnos José Luís Garrido Labrador y José Miguel Ramírez Sanz, pero sobretodo, asimilar y leer numerosos artículos sobre la metodología \textbf{DTW}(\textit{Dynamic Time Warping}) y como puede implantarse a la búsqueda de secuencias y comparación o extracción de características de la pose humana.
+
+
+\subsection{Sprint 1: 03/02/2022 - 24/02/2022}
+
+El \textit{sprint 1} consistió en una investigación sobre diferentes librerías en \textit{Python} que implementasen el algoritmo \textit{DTW}. Además se descargó la plantilla aportada por la Universidad de Burgos para poder desarrollar la memoria en \LaTeX.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}} & \textbf{Est.} & \textbf{Final} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Investigación sobre paquetes DTW                            & 10            & 13             \\
+\rowcolor[HTML]{EFEFEF} 
+Investigar sobre la librería tslearn                        & 5             & 14             \\
+\rowcolor[HTML]{ECF4FF} 
+Investigar sobre la librería dtaidistance                   & 5             & 3              \\
+\rowcolor[HTML]{EFEFEF} 
+Investigar sobre la librería pydtw                          & 5             & 2              \\
+\rowcolor[HTML]{ECF4FF} 
+Investigar sobre la librería simpledtw                      & 5             & 2              \\
+\rowcolor[HTML]{EFEFEF} 
+Investigar sobre la librería scipy                          & 5             & 4              \\
+\rowcolor[HTML]{ECF4FF} 
+Descargar plantilla \LaTeX                                   & 1             & 1              \\ \hline
+\end{tabular}
+\caption{Tareas del \textit{sprint 1}.}
+\label{sprint1}
+\end{table}
+
+La mayor dificultad en este \textit{sprint} fue la comprensión de las diferentes librerías, con qué tipo de datos se podían utilizar y cómo analizar y comprender los resultados obtenidos.  
+
+\subsection{Sprint 2: 25/02/2022 - 10/03/2022}
+
+El \textit{sprint 2} consistió en la realización de pruebas sobre los paquetes investigados y en la instalación de los programas necesarios para la ejecución del proyecto fin de máster, \texttt{TFM-2020}\footnote{Trabajo final de máster realizado por los alumnos José Luís Garrido Labrador y José Miguel Ramírez Sanz}. 
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{10cm}cc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}             & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Est.}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Final}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Ejecutar múltiples pruebas sobre las librerías analizadas               & 5                                                         & 7                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Investigar como representar resultados visualmente                      & 2                                                         & 2                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Crear un cuaderno con las pruebas realizadas                            & 1                                                         & 2                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Comenzar con el equipo \texttt{gamma}\footnote{\textit{gamma} es una máquina del grupo \textit{ADMIRABLE} de la Universidad de Burgos que ha sido utilizada para la realización de gran parte del proyecto.}                                           & 2                                                         & 4                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Instalar \textit{Nvidia, Cuda y Tensorflow }                                     & 2                                                         & 4                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Adaptar las versiones de los programas a las requeridas por el proyecto & 2                                                         & 7                                                          \\ \hline
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 2}.}
+\label{sprint2}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue localizar las versiones compatibles entre los programas a instalar y conseguir instalarlo todo con éxito. 
+
+\subsection{Sprint 3: 11/03/2022 - 24/03/2022}
+
+El \textit{sprint 3} consistió en la descarga y ejecución del proyecto \textit{TFM-2020}. Además en este \textit{sprint} se crearon una serie de vídeos cortos que más tarde serían utilizados en las pruebas del proyecto.
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{10cm}cc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}        & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Est.}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Final}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Descargar y probar el proyecto de partida                          & 2                                                         & 12                                                         \\
+\rowcolor[HTML]{EFEFEF} 
+Crear vídeos cortos para poder probar el proyecto                  & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Solucionar error de \textit{Kafka}                                          & 2                                                         & 2                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Solucionar errores de compatibilidad                               & 2                                                         & 4                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Solucionar errores de memoria                                      & 2                                                         & 5                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Documenta errores surgidos en las instalaciones                    & 2                                                         & 2                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Documentar errores surgidos en las ejecuciones                     & 2                                                         & 3                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Probar los paquetes \textit{DTW} con datos de mayor tamaño unidimensionales & 5                                                         & 7                                                          \\ \hline
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 3}.}
+\label{sprint3}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue conseguir solucionar los errores de versiones que surgían al intentar ejecutar el proyecto. Finalmente se consiguió subsanar muchos errores y ejecutar el proyecto, aunque este de momento no estaba listo para ser usado ya que se consiguió ejecutar pero no se consiguieron los resultados esperados en cuanto a la extracción de \textit{frames}.
+
+\subsection{Sprint 4: 25/03/2022 - 07/04/2022}
+
+El \textit{sprint 4} consistió en realizar numerosas pruebas sobre los algoritmos \textit{DTW} encontrados pero, en este caso sobre conjuntos de datos de mayor tamaño. También se analizaron tanto los resultados arrojados como los tiempos de ejecución trascurridos. 
+Por otra parte fue clave el análisis que se hizo sobre el funcionamiento interno de los contenedores para comprender los posibles errores. 
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{10cm}cc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}        & \textbf{Est.} & \textbf{Final} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Ejecutar pruebas con datos de mayor tamaño                         & 6             & 8              \\
+\rowcolor[HTML]{EFEFEF} 
+Ejecutar pruebas con datos multidimensionales                      & 7             & 10             \\
+\rowcolor[HTML]{ECF4FF} 
+Transferir archivos entre equipos usando el comando scp            & 1             & 1              \\
+\rowcolor[HTML]{EFEFEF} 
+Solucionar errores del proyecto                                    & 4             & 10             \\
+\rowcolor[HTML]{ECF4FF} 
+Analizar los contenedores Docker que se lanzaban en cada ejecución & 3             & 5              \\
+\rowcolor[HTML]{EFEFEF} 
+Analizar las imágenes Docker                                       & 4             & 4              \\
+\rowcolor[HTML]{ECF4FF} 
+Ejecutar contenedores Docker por separado                          & 3             & 3              \\
+\rowcolor[HTML]{EFEFEF} 
+Analizar los log de error                                          & 2             & 2              \\
+\rowcolor[HTML]{ECF4FF} 
+Redactar nuevos errores y sus soluciones                           & 1             & 1              \\ \hline
+
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 4}.}
+\label{sprint4}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue familiarizarse con la tecnología \textit{Docker}. Se tuvieron que revisar cada una de las imágenes y analizar los contenedores individualmente. Finalmente se logró comprender la razón de muchos errores y el funcionamiento interno del proyecto. 
+
+\subsection{Sprint 5: 08/04/2022 - 28/04/2022}
+El \textit{sprint 5} consistió en la creación de nuevos conjuntos de datos, en concreto la creación de diversas series temporales para ejecutar múltiples pruebas sobre los algoritmos \textit{DTW} en conjuntos de datos mucho más dispersos y de mayor tamaño.
+
+Tras comprobar los resultados arrojados se procedió a implementar la búsqueda de secuencias con datos reales. Para ello se extrajo el inicio, el final y la secuencia intermedia de cada secuencia obtenida, con estas secuencias de mucho menor tamaño se empezaron a realizar las pruebas de localización de secuencias y posteriormente analizar los resultados arrojados. 
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{10cm}cc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}                                 & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Est.}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Final}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Crear nuevos conjuntos de datos aleatorios, de mayor tamaño y con mayor ruido               & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Ejecutar múltiples pruebas sobre los nuevos conjuntos de datos                              & 3                                                         & 5                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Crear nuevos conjuntos de datos similares a un patrón de referencia                         & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Ejecutar múltiples pruebas en las que encuentre el conjunto de datos más parecido al patrón & 3                                                         & 5                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Investigar métricas de comparación que informen como de parecidas son dos secuencias        & 2                                                         & 4                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Ejecutar múltiples pruebas sobre secuencias incompletas                                     & 3                                                         & 3                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Almacenar el punto de inicio y final en el que se encuentra una secuencia dentro de otra    & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Probar el funcionamiento de Detectron2 sobre cuadernos                                      & 3                                                         & 3                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Investigar múltiples algoritmos de detección de objetos                                     & 4                                                         & 4                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Ejecutar pruebas sobre los algoritmos encontrados                                           & 2                                                         & 5                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Ejecutar el proyecto sobre los distintos modos de ejecución                                 & 5                                                         & 6                                                          \\ \hline
+
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 5}.}
+\label{sprint5}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue la elección de algoritmos que obtuviesen buenos resultados en un tiempo óptimo. Muchos algoritmos obtenían unos buenos resultados con distintos tipos de datos pero sus ejecuciones podían superar los cuarenta o cincuenta minutos aproximadamente, en conjuntos de datos compuestos por $K$ valores, siendo $Z$ la longitud total del conjunto de datos, con un número entero comprendido entre $Z \in [2500:3000]$ y $N$x$M$ el tipo de datos que se almacena en cada valor de $K$, con dimensiones $27$x$2$ o $27$x$3$.
+
+\subsection{Sprint 6: 29/04/2022 - 12/05/2022}
+
+El \textit{sprint 6} consistió en la realización de nuevas pruebas sobre la localización de secuencias. Para ello, lo primero que se tuvo que realizar fue la creación de nuevos vídeos y a partir de esos vídeos se obtuvieron las posiciones relativas al esqueleto del individuo. Tras realizar múltiples pruebas intentando localizar las secuencias obtenidas en otra secuencia de mayor tamaño y observar los resultados arrojados, se procedió a empezar con la realización de la memoria. 
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{10cm}cc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}                        & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Est.}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Final}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Creación de nuevos vídeos                                                          & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Analizar código de \texttt{consumer.py}                                                     & 2                                                         & 2                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Ejecuciones del programa sobre los nuevos vídeos                                   & 6                                                         & 12                                                         \\
+\rowcolor[HTML]{EFEFEF} 
+Analizar que sucede si en un frame no detecta el esqueleto                         & 2                                                         & 1                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Investigar parámetros opcionales DTW                                               & 3                                                         & 2                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Investigar como almacenar todas las secuencias similares a un patrón de referencia & 6                                                         & 3                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Crear un cuaderno con múltiples pruebas sobre como almacenar las secuencias        & 3                                                         & 4                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Analizar como afecta el Parkinson a los movimientos de las extremidades            & 3                                                         & 3                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Redactar la introducción de la memoria                                             & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Redactar un breve resumen para la memoria                                          & 1                                                         & 2                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Redactar \textit{Conceptos teóricos}                                   & 2                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Crear una estructura de directorios en GitHub                                      & 1                                                         & 1                                                          \\ \hline
+
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 6}.}
+\label{sprint6}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue la realización de las nuevas pruebas de localización de secuencias, ya que al tratarse de múltiples vídeos, se dedicó mucho tiempo a extraer todas y cada una de las posiciones y posteriormente a utilizarlas para la búsqueda de secuencias. 
+Este trabajo resultó un poco tedioso y consumió demasiado tiempo ya que muchas veces las ejecuciones no terminaban favorablemente y había que repetir el proceso.
+
+
+\subsection{Sprint 7: 13/05/2022 - 26/05/2022}
+
+El \textit{sprint 7} consistió en modificar los ficheros ya existentes. Hasta este momento se habían obtenido los conjuntos de datos enteros y posteriormente se separaban según las posiciones que ocupasen. En este \textit{sprint} el objetivo fue generar distintos ficheros con extensión \textit{.pickle} según las posiciones relativas al esqueleto que contuviesen, es decir, poder separar entre posiciones de ángulos, posiciones del conjunto entero, únicamente posiciones sin ángulos, etc.
+
+Otro de los objetivos de este \textit{sprint} fue el de solucionaron nuevos errores surgidos en los contenedores \textit{Docker} y en investigaron diferentes librerías para implementar una aplicación de escritorio. 
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{10cm}cc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}                  & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Est.}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Final}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Modificar el fichero \texttt{consumer.py}                                             & 1                                                         & 4                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Modificar el fichero \texttt{extraOpt.py}                                             & 2                                                         & 4                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Modificar el fichero \texttt{imageProcesor.py}                                        & 1                                                         & 4                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Modificar el fichero \texttt{fishubuia.py}                                            & 2                                                         & 4                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Modificar el fichero y crear nuevas funciones en \texttt{PosicionVF.py}               & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Crear nuevos conjuntos de datos desechando \textit{frame}                             & 2                                                         & 2                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Ejecutar múltiples pruebas con conjuntos de datos más pequeños               & 5                                                         & 8                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Solucionar nuevos errores con \textit{Docker}                                         & 4                                                         & 6                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Solucionar errores al intentar abrir ficheros                                & 3                                                         & 2                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Redactar objetivos del proyecto en la memoria                                & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Investigar distintas librerías para desarrollar una aplicación de escritorio & 5                                                         & 6                                                          \\ \hline
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 7}.}
+\label{sprint7}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue la modificación de los ficheros ya existentes. Al hacer modificaciones sobre ellos había que restaurar las imágenes \textit{Docker} haciendo que las distintas modificaciones conllevasen una gran cantidad de tiempo. 
+
+\subsection{Sprint 8: 27/05/2022 - 16/06/2022}
+
+El \textit{sprint 8} consistió prioritariamente en la realización de la aplicación de escritorio y en la investigación sobre como clasificar un ejercicio según con que parte del cuerpo es realizado. 
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}}      & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}Est.} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}Final} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Desarrollar un prototipo de aplicación de escritorio             & 5                                                & 9                                                 \\
+\rowcolor[HTML]{EFEFEF} 
+Crear un modo ejemplo en la aplicación de escritorio             & 4                                                & 6                                                 \\
+\rowcolor[HTML]{ECF4FF} 
+Analizar la librería \textit{ffmpeg} para el recorte de los vídeos        & 3                                                & 1                                                 \\
+\rowcolor[HTML]{EFEFEF} 
+Crear videos finales para subir a la aplicación de escritorio    & 1                                                & 1                                                 \\
+\rowcolor[HTML]{ECF4FF} 
+Realizar diferentes imágenes con Detectron2 para la memoria      & 2                                                & 1                                                 \\
+\rowcolor[HTML]{EFEFEF} 
+Realizar diferentes imágenes para la memoria                     & 3                                                & 4                                                 \\
+\rowcolor[HTML]{ECF4FF} 
+Crear ficheros con extensión .py con las nuevas funcionalidades  & 2                                                & 3                                                 \\
+\rowcolor[HTML]{EFEFEF} 
+Investigar como identificar movimientos superiores e inferiores  & 7                                                & 9                                                 \\
+\rowcolor[HTML]{ECF4FF} 
+Crear un cuaderno con las posibles formas de detectar ejercicios & 2                                                & 2                                                 \\
+\rowcolor[HTML]{EFEFEF} 
+Redactar \textit{Técnicas y herramientas}           & 4                                                & 5                                                 \\ \hline
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 8}.}
+\label{sprint8}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue desarrollar un prototipo viable de aplicación de escritorio y llevarlo a la práctica. 
+
+\subsection{Sprint 9: 17/06/2022 - 07/07/2022}
+
+El \textit{sprint 9} consistió en darle el acabado final al proyecto. Se tuvo que organizar todo el contenido, redactar la memoria, anexos, y crear una serie de vídeos para la presentación. 
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Tareas}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Est.}} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Final}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Mejora las funcionalidades de la aplicación de escritorio   & 5                                                         & 9                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Mejorar el diseño de la aplicación de escritorio            & 4                                                         & 6                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Redactar \textit{Trabajos relacionados}                          & 3                                                         & 3                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Redactar \textit{Aspectos relevantes}                                & 8                                                         & 12                                                         \\
+\rowcolor[HTML]{ECF4FF} 
+Redactar \textit{Conclusiones y líneas futuras}                      & 2                                                         & 3                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Redactar los anexos                                         & 5                                                         & 6                                                          \\
+\rowcolor[HTML]{ECF4FF} 
+Crear web de resultados                                     & 1                                                         & 1                                                          \\
+\rowcolor[HTML]{EFEFEF} 
+Crear diferentes videos para la presentación                & 1                                                         & 1                                                          \\ \hline
+\end{tabular}
+}
+\caption{Tareas del \textit{sprint 9}.}
+\label{sprint9}
+\end{table}
+
+La mayor dificultad de este \textit{sprint} fue la realización de la memoria. En ello se invirtió mucho tiempo en la creación diversos ejemplos y en la redacción de todos los problemas surgidos, la resolución de los mismos y los resultados obtenidos. 
+
+
+\section{Estudio de viabilidad}
+En este apartado se va a comentar la viabilidad del proyecto. Por una parte se redactará la \emph{viabilidad económica} que hará referencia al coste que supondría el desarrollo del proyecto, y por otra parte, se redactará la \emph{viabilidad legal} de las librerías y herramientas utilizadas. 
+
+Estos apartados contarán con información extraída de los proyectos de \textcolor{blue}{José Luis Garrido Labrador y José Miguel Ramírez Sanz}\footnote{https://github.com/jlgarridol/TFM-FIS-IF.git \\ https://github.com/Josemi/TFM-FIS-IA.git} ya que este proyecto es una continuación del suyo y cuenta con grandes apartados en común.
+
+\subsection{Viabilidad económica}
+
+En este apartado se encuentran los cálculos económicos para desarrollar el proyecto. Para realizar el cálculo se han divido los gastos en:
+\begin{enumerate}
+    \item \textbf{Coste de personal}: en la tabla \ref{tablaA1} se encuentra una estimación de los costes que supondría contratar a un trabajador durante seis meses a jornada completa. 
+    \item \textbf{Coste \textit{hardware}}: la tabla \ref{tablaA2} contiene las inversiones en \textit{hardware} y \textit{MainFrames} necesarios para el proyecto.
+    \item \textbf{Coste de servicios}: la tabla \ref{tablaA3} contiene el conjunto de servicios necesarios para el correcto funcionamiento del proyecto.
+\end{enumerate}
+
+Finalmente, en la tabla \ref{tablaA4} se puede observar un cálculo final del coste del proyecto.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Concepto}} & \textbf{Coste (€)} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Salario mensual bruto ~\cite{salariales}                                        & 2.047,78           \\
+\rowcolor[HTML]{EFEFEF} 
+Seguridad Social (30,04\%)                                    & 615,15             \\
+\rowcolor[HTML]{ECF4FF} 
+Retención IRPF (30\%)                                         & 421,191            \\
+\rowcolor[HTML]{EFEFEF} 
+Salario mensual neto                                          & 1.403,97           \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+\textbf{Total 6 meses y dos empleados}                        & 24.573,36          \\ \hline
+\end{tabular}
+\caption{Costes de personal.}
+\label{tablaA1}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Concepto}} & \textbf{Coste (€)} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Coste amortizado (€)}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Ordenador de desarrollo (x2)                                  & 950                & 59,37                                                                     \\
+\rowcolor[HTML]{EFEFEF} 
+Dispositivos paciente (x9)                                    & 100                & 6,25                                                                      \\
+\rowcolor[HTML]{ECF4FF} 
+Webcam pacientes (x9)                                         & 150                & 9,38                                                                      \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{MainFrame Gamma}                                      & 3.000              & 187,5                                                                     \\
+\rowcolor[HTML]{ECF4FF} 
+Gamma GPU (x3)                                                & 1.500              & 93,75                                                                     \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{MainFrame Alpha}                                      & 2.000              & 125                                                                       \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+\textbf{Total 6 meses y dos empleados}                        & 13.650             & 853,16 
+\end{tabular}
+\caption{Costes de \textit{hardware}.}
+\label{tablaA2}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Concepto}} & \textbf{Coste (€)} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Suscripción \textit{Ngrok}                                             & 7.33               \\
+\rowcolor[HTML]{EFEFEF} 
+Lineas \textit{Vodafone}                                               & 30                 \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+\textbf{Total ( por 6 meses)}                                 & 763,98             \\ \hline
+\end{tabular}
+\caption{Costes de servicios.}
+\label{tablaA3}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Concepto}} & \textbf{Coste (€)}                                 \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+Personal                                                      & 24.573,36                                          \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Hardware}                                             & 13.650                                             \\
+\rowcolor[HTML]{ECF4FF} 
+Servicios                                                     & \multicolumn{1}{l}{\cellcolor[HTML]{ECF4FF}763,98} \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+\textbf{Total ( por 6 meses)}                                 & 38.987,34                                          \\ \hline
+\end{tabular}
+\caption{Costes finales.}
+\label{tablaA4}
+\end{table}
+
+
+\subsection{Viabilidad legal}
+En este subapartado se van a exponer las distintas licencias que tienen las herramientas y librerías, así como la licencia final con la que cuenta este proyecto. 
+
+En la tabla \ref{tablaA5} se muestran las distintas librerías y herramientas utilizadas para la realización del proyecto y su correspondiente licencia. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\textbf{Librería-Herramienta} & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}\textbf{Licencia}} \\ \hline
+\rowcolor[HTML]{ECF4FF} 
+\textit{Numpy}                & BSD 3                                                         \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Pandas}               & BSD 3                                                         \\
+\rowcolor[HTML]{ECF4FF} 
+\textit{OpenCV}               & BSD 3                                                         \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Pynvml}               & BSD 3                                                         \\
+\rowcolor[HTML]{ECF4FF} 
+\textit{Matplotlib}           & PSF                                                           \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Seaborn}              & BSD 3                                                \\
+\rowcolor[HTML]{ECF4FF} 
+\textit{Plotly}               & MIT                                                           \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Torchvision}          & BSD 3                                                         \\
+\rowcolor[HTML]{ECF4FF} 
+\textit{Python}               & PSF                                                           \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Detectron2}           & Apache 2.0                                                    \\
+\rowcolor[HTML]{ECF4FF} 
+\textit{Tslearn}              & BSD 2                                                         \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Dtaidistance}         & \multicolumn{1}{l}{\cellcolor[HTML]{EFEFEF}Apache 2.0}        \\
+\rowcolor[HTML]{ECF4FF} 
+\textit{Tkinter}              & BSD 3                                                         \\
+\rowcolor[HTML]{EFEFEF} 
+\textit{Scipy}                & BSD                                                           \\ \hline
+\end{tabular}
+\caption{Tabla con las licencias de las librerías y herramientas utilizadas.}
+\label{tablaA5}
+\end{table}
+
+La licencia final escogida para este proyecto ha sido \textbf{GPL v3.0} ya que con esta licencia se puede utilizar el \textit{software} desarrollado para su uso comercial, se puede modificar las implementaciones realizadas,
+distribuirlas, realizar patentes sobre ellas y usarlas de forma privada.
+
+Por otra parte, hay que destacar que este proyecto se ha realizado con la ayuda de software de terceros con licencias propias que influyen sobre la viabilidad legal del proyecto.
+
+\subsubsection{\textit{Copyright} de terceros}
+\textcolor{blue}{Este apartado ha sido extraido del proyecto de Jose Luis Garrido Labrador.}
+
+\textbf{Apache 2.0}:
+\begin{itemize}
+	\item \textit{Apache Kafka} - \textit{Apache Foundation}
+	\item \textit{Apache Zookeeper} - \textit{Apache Foundation}
+	\item \textit{Apache Spark} - \textit{Apache Foundation}
+	\item \textit{Docker CP} - \textit{Confluentic}
+	\item \textit{Jitsi Meet} - \textit{Jitsi}
+\end{itemize}
+
+\textbf{GPLv3}:
+\begin{itemize}
+	\item \textit{Clúster Spark Docker} - Mario Juez Gil
+\end{itemize}
+
+\textbf{BSD} todas sus variantes:
+\begin{itemize}
+	\item \textit{Caffe} - \textit{BVLC}
+	\item \textit{Flask} - \textit{Pallets}
+	\item \textit{Jinja} - \textit{Pallets}
+	\item \textit{OpenCV} - \textit{Intel Corporation}, \textit{Xperience AI}
+	\item \textit{Seaborn} - Michael Waskom
+\end{itemize}
+
+\textbf{MIT}
+\begin{itemize}
+	\item \textit{Bootstrap 4} - \textit{Twitter}
+	\item \textit{jQuery} - \textit{JS Foundation}
+\end{itemize}
