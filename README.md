@@ -2,7 +2,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 
-## Visión artificial para la evaluación de ejercicios de rehabilitación
+## Detección de secuencias para la evaluación de ejercicios de rehabilitación
 Uso de la metodología **Dynamic Time Warping** para la detección de ejercicios en personas con enfermedades neurodegenerativas (Parkinson).
 Trabajo de fin de grado de Ingeniería Informática realizado en la **Universidad de Burgos**. Minería de datos aplicada a la diagnosis del Parkinson.
 
