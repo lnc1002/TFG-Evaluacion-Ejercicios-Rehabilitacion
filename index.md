@@ -33,34 +33,21 @@ The new added functionality allows the identification of exercises. From a video
 
 Finally, to be able to see the results, there has been implemented a desktop application in which the user can watch a clip of the patient's exercise.
 
-### Markdown
+### Detección de secuencias
+A continuación se muestran las tablas con las secuencias encontradas según los diferentes ejercicios realizados.
+![Detección de secuencias 1](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/src/pruebas/img/Pruebas_Video_Completo3.png)
+![Detección de secuencias 2](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/src/pruebas/img/Pruebas_Video_Completo4.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Clasificación de ejercicios
+Resultados de la clasificación de los ejercicios realizada.
 
-```markdown
-Syntax highlighted code block
+![Ejercicios inferiores 1](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/ExInf1.png)
+![Ejercicios inferiores 2](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/ExInf3.png)
 
-# Header 1
-## Header 2
-### Header 3
+![Ejercicios superiores 1](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/ExSup1.png)
+![Ejercicios superiores 2](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/ExSup2.png)
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Demo
+![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app1.PNG)
+![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app2.PNG)
+![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app4.PNG)
