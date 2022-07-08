@@ -34,6 +34,12 @@ A continuación se muestran las tablas con las secuencias encontradas según los
 ![Detección de secuencias 1](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/src/pruebas/img/Pruebas_Video_Completo3.png)
 ![Detección de secuencias 2](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/src/pruebas/img/Pruebas_Video_Completo4.png)
 
+#### Para poder observar como se han obtenido las posiciones visitar:
+https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Videos/ExtracciónPosiciones.mov
+
+#### Para poder observar como se han obtenido las secuencias resultado visitar:
+https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Videos/LocalizarSecuencia.mov
+
 ### Clasificación de ejercicios
 Resultados de la clasificación de los ejercicios realizada.
 
@@ -42,6 +48,9 @@ Resultados de la clasificación de los ejercicios realizada.
 
 ![Ejercicios superiores 1](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/ExSup1.png)
 ![Ejercicios superiores 2](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/ExSup2.png)
+
+#### Para poder observar como se han obtenido las clasificaciones visitar:
+https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Videos/ClasificacionEjecicios.mov
 
 ### Demo
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app1.PNG)
