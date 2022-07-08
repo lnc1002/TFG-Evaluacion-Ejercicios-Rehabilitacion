@@ -1,9 +1,5 @@
 ## TFG-Evaluacion-Ejercicios-Rehabilitacion
 
-You can use the [editor on GitHub](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
 ### Resumen
 Actualmente el mundo está caracterizado por un aumento de la esperanza de vida y una población cada vez más envejecida, esto repercute en un incremento de enfermedades, en concreto enfermedades neurodegenerativas, que es de lo que va a tratar este estudio. 
 La más común es el _Alzheimer_ y seguido de este trastorno se encuentra la enfermedad del _Parkinson_, afectando a una de cada 100 personas mayores de 60 años. 
@@ -51,4 +47,6 @@ Resultados de la clasificación de los ejercicios realizada.
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app1.PNG)
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app2.PNG)
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app4.PNG)
-![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Videos/FuncionalidadesApp.mp4)
+
+#### Para poder observar una demo de la aplicación de escritorio visitar:
+https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Videos/FuncionalidadesApp.mkv
