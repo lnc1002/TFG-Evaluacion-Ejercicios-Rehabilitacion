@@ -1,0 +1,27 @@
+\capitulo{7}{Conclusiones y Líneas de trabajo futuras}
+Para concluir con la exposición de esta memoria, se van a comentar tanto las conclusiones del trabajo como las posibles mejoras o líneas futuras que se podrían incluir en un futuro. 
+
+\section{Conclusiones}
+
+De este proyecto se han obtenido varias conclusiones:
+
+Como primera conclusión cabe destacar que continuar con un trabajo de otros compañeros puede resultar fácil pero adaptar un proyecto del que desconoces su funcionamiento y sobretodo la tecnología utilizada ha resultado en ocasiones bastante complicado. 
+
+Por otra parte, el problema principal de esta proyecto ha sido el tiempo necesario para obtener los resultados. Por una parte el tiempo empleado en extraer las secuencias, ya que este tiempo no depende únicamente de las ejecuciones del programa si no que muchas veces tras varios intentos se veía que algo no se estaba implementando correctamente y había que restaurar las imágenes \textit{docker}, aspecto que consumía una demora en la obtención de los resultados. Y por otra parte el tiempo empleado en obtener el resultado. En muchas ocasiones es difícil realizar las pruebas por el tiempo que requieren y hay que tener en cuenta que para llegar a la solución se ha necesitado implementar múltiples algoritmos, probar con datos de gran tamaño, etc. Combinar todo esto ha creado situaciones en las que la búsqueda de la solución ha sido muy tediosa y desesperante, ya que muchas veces las ejecuciones eran demasiado largas y para concluir los resultado nada esperanzadores.
+
+A pesar de todos los inconvenientes me ha encantado el proyecto. Una vez vas solucionando los problemas y consigues resultados favorables, te invitan a seguir investigando y pensando nuevas formas de hacerlo más eficiente o preciso.
+
+
+\section{Líneas futuras} \label{cap:linFutu}
+En este proyecto se han realizado múltiples pruebas para poder encontrar un patrón de referencia dentro de una secuencia de mayor tamaño. También se ha conseguido detectar si el ejercicio en cuestión corresponde a las extremidades superiores o inferiores. Con estas aportaciones se pueden proponer las siguientes líneas futuras:
+\begin{enumerate}
+    \item Una vez reconocido el ejercicio se podría evaluar como de bien o mal está realizado. En un principio se planteó utilizar la distancia o el coste que proporciona el algoritmo que encuentra el camino óptimo para devolver como de parecida es la secuencia encontrada en comparación con la de referencia. Los resultados obtenidos fueron desalentadores por lo que la evaluación de ejercicios tendría que realizarse de otra manera.
+    \item Clasificar el tipo de ejercicios en un rango más amplio, no solo si se trata de extremidades superiores o inferiores.
+    \item Esperar a que evolucionen los algoritmos de detección de objetos y poder hacer pruebas con esqueletos que hayan sido obtenidos de una manera más precisa.
+    \item Calcular la diferencia entre movimientos. Un aspecto que puede ser interesante a la hora de encontrar la secuencia es mediante el cálculo de la diferencia de posición. Si sobre el patrón de referencia almacenamos los valores relativos a los cambios de posición de cada una de las extremidades entre el \textit{frame} actual y el inmediatamente anterior, se podría obtener una secuencia muy reducida y precisa con la que posteriormente realizar los cálculos de búsqueda. 
+    \item Ejecutar la búsqueda de secuencias una vez sea clasificado el ejercicio según la extremidad del cuerpo que se ejercite en el mismo. De esta forma se le podrá dar mayor peso a la parte del cuerpo ejercitada y después implementar la búsqueda de secuencias. 
+    \item Aplicar el algoritmo obtenido a vídeos reales, realizados por terapeutas profesionales y pacientes con la enfermedad de \textit{Parkinson}.
+    \item La aplicación diseñada es una mera muestra de datos para presentar de una forma más visual el fin de este proyecto al jurado pero esta misma aplicación podría ser mejorada y distribuida a los terapeutas para que evalúen ellos mismos como están realizando los ejercicios sus pacientes.
+    \item Automatizar la aplicación de escritorio para que saque las secuencias sin la necesidad de especificarle los \textit{frames}.
+\end{enumerate}
+

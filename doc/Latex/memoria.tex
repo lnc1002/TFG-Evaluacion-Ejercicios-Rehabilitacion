@@ -1,0 +1,516 @@
+\documentclass[a4paper,12pt,twoside]{memoir}
+
+% Castellano
+\usepackage[spanish,es-tabla]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Scalable font
+\usepackage{microtype}
+\usepackage{placeins}
+
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor}
+\RequirePackage{xtab}
+\RequirePackage{multirow}
+
+% Links
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
+\hypersetup{
+	allcolors = {red}
+}
+
+% Ecuaciones
+\usepackage{amsmath}
+
+% Rutas de fichero / paquete
+\newcommand{\ruta}[1]{{\sffamily #1}}
+
+% Párrafos
+\nonzeroparskip
+
+% Huérfanas y viudas
+\widowpenalty100000
+\clubpenalty100000
+
+% Imagenes
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% Bibliografía
+%\usepackage[backend=bibtex, sorting=non]{biblatex}
+%\addbibresource{bibliografia.bib}
+
+\newcommand{\imagen}[2]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.9\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
+\newcommand{\imagenflotante}[2]{
+	\begin{figure}%[!h]
+		\centering
+		\includegraphics[width=0.9\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+}
+
+% El comando \figura nos permite insertar figuras comodamente, y utilizando
+% siempre el mismo formato. Los parametros son:
+% 1 -> Porcentaje del ancho de página que ocupará la figura (de 0 a 1)
+% 2 --> Fichero de la imagen
+% 3 --> Texto a pie de imagen
+% 4 --> Etiqueta (label) para referencias
+% 5 --> Opciones que queramos pasarle al \includegraphics
+% 6 --> Opciones de posicionamiento a pasarle a \begin{figure}
+\newcommand{\figuraConPosicion}[6]{%
+  \setlength{\anchoFloat}{#1\textwidth}%
+  \addtolength{\anchoFloat}{-4\fboxsep}%
+  \setlength{\anchoFigura}{\anchoFloat}%
+  \begin{figure}[#6]
+    \begin{center}%
+      \Ovalbox{%
+        \begin{minipage}{\anchoFloat}%
+          \begin{center}%
+            \includegraphics[width=\anchoFigura,#5]{#2}%
+            \caption{#3}%
+            \label{#4}%
+          \end{center}%
+        \end{minipage}
+      }%
+    \end{center}%
+  \end{figure}%
+}
+
+%
+% Comando para incluir imágenes en formato apaisado (sin marco).
+\newcommand{\figuraApaisadaSinMarco}[5]{%
+  \begin{figure}%
+    \begin{center}%
+    \includegraphics[angle=90,height=#1\textheight,#5]{#2}%
+    \caption{#3}%
+    \label{#4}%
+    \end{center}%
+  \end{figure}%
+}
+% Para las tablas
+\newcommand{\otoprule}{\midrule [\heavyrulewidth]}
+%
+% Nuevo comando para tablas pequeñas (menos de una página).
+\newcommand{\tablaSmall}[5]{%
+ \begin{table}
+  \begin{center}
+   \rowcolors {2}{gray!35}{}
+   \begin{tabular}{#2}
+    \toprule
+    #4
+    \otoprule
+    #5
+    \bottomrule
+   \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+
+%
+% Nuevo comando para tablas pequeñas (menos de una página).
+\newcommand{\tablaSmallSinColores}[5]{%
+ \begin{table}[H]
+  \begin{center}
+   \begin{tabular}{#2}
+    \toprule
+    #4
+    \otoprule
+    #5
+    \bottomrule
+   \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+
+\newcommand{\tablaApaisadaSmall}[5]{%
+\begin{landscape}
+  \begin{table}
+   \begin{center}
+    \rowcolors {2}{gray!35}{}
+    \begin{tabular}{#2}
+     \toprule
+     #4
+     \otoprule
+     #5
+     \bottomrule
+    \end{tabular}
+    \caption{#1}
+    \label{tabla:#3}
+   \end{center}
+  \end{table}
+\end{landscape}
+}
+
+%
+% Nuevo comando para tablas grandes con cabecera y filas alternas coloreadas en gris.
+\newcommand{\tabla}[6]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+      #5
+      \otoprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \toprule
+      #5
+      \otoprule
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+    \rowcolors {2}{gray!35}{}
+    \begin{xtabular}{#2}
+      #6
+      \bottomrule
+    \end{xtabular}
+    \label{tabla:#4}
+  \end{center}
+}
+
+%
+% Nuevo comando para tablas grandes con cabecera.
+\newcommand{\tablaSinColores}[6]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+      #5
+      \otoprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \toprule
+      #5
+      \otoprule
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+    \begin{xtabular}{#2}
+      #6
+      \bottomrule
+    \end{xtabular}
+    \label{tabla:#4}
+  \end{center}
+}
+
+%
+% Nuevo comando para tablas grandes sin cabecera.
+\newcommand{\tablaSinCabecera}[5]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \hline
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+  \begin{xtabular}{#2}
+    #5
+   \bottomrule
+  \end{xtabular}
+  \label{tabla:#4}
+  \end{center}
+}
+
+
+
+\definecolor{cgoLight}{HTML}{EEEEEE}
+\definecolor{cgoExtralight}{HTML}{FFFFFF}
+
+%
+% Nuevo comando para tablas grandes sin cabecera.
+\newcommand{\tablaSinCabeceraConBandas}[5]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \hline
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+    \rowcolors[]{1}{cgoExtralight}{cgoLight}
+
+  \begin{xtabular}{#2}
+    #5
+   \bottomrule
+  \end{xtabular}
+  \label{tabla:#4}
+  \end{center}
+}
+
+
+
+\graphicspath{ {./img/} }
+
+% Capítulos
+\chapterstyle{bianchi}
+\newcommand{\capitulo}[2]{
+	\setcounter{chapter}{#1}
+	\setcounter{section}{0}
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\chapter*{#2}
+	\addcontentsline{toc}{chapter}{#2}
+	\markboth{#2}{#2}
+}
+
+% Apéndices
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand*\cftappendixname{\appendixname}
+
+\newcommand{\apendice}[1]{
+	%\renewcommand{\thechapter}{A}
+	\chapter{#1}
+}
+
+\renewcommand*\cftappendixname{\appendixname\ }
+
+% Formato de portada
+\makeatletter
+\usepackage{xcolor}
+\newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\course}[1]{\def\@course{#1}}
+\definecolor{cpardoBox}{HTML}{E6E6FF}
+\def\maketitle{
+  \null
+  \thispagestyle{empty}
+  % Cabecera ----------------
+\noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}%
+  \vfill
+  % Título proyecto y escudo informática ----------------
+  \colorbox{cpardoBox}{%
+    \begin{minipage}{.8\textwidth}
+      \vspace{.5cm}\Large
+      \begin{center}
+      \textbf{TFG del Grado en Ingeniería Informática}\vspace{.6cm}\\
+      \textbf{\LARGE\@title{}}
+      \end{center}
+      \vspace{.2cm}
+    \end{minipage}
+
+  }%
+  \hfill\begin{minipage}{.20\textwidth}
+    \includegraphics[width=\textwidth]{escudoInfor}
+  \end{minipage}
+  \vfill
+  % Datos de alumno, curso y tutores ------------------
+  \begin{center}%
+  {%
+    \noindent\LARGE
+    Presentado por \@author{}\\ 
+    en Universidad de Burgos --- \@date{}\\
+    Tutor: \@tutor{}\\
+  }%
+  \end{center}%
+  \null
+  \cleardoublepage
+  }
+\makeatother
+
+\newcommand{\nombre}{Lucía Núñez Calvo} %%% cambio de comando
+
+% Datos de portada
+\title{Detección y evaluación de ejercicios de rehabilitación para pacientes con la enfermedad de Parkinson}
+\author{\nombre}
+\tutor{José Francisco Díez Pastor, José Luis Garrido Labrador y José Miguel Ramírez Sanz}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\newpage\null\thispagestyle{empty}\newpage
+\thispagestyle{empty}
+\noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
+{\centering
+    \Large\bfseries Agradecimientos \\
+}
+\noindent \\ Transmitir mi más sincero agradecimiento a la Universidad de Burgos por haberme permitido utilizar la máquina \textit{gamma} del grupo \textit{ADMIRABLE} para poder desempeñar este proyecto, a mis tutores D. José Francisco Díez Pastor, D. José Luis Garrido Labrador y D. José Miguel Ramírez Sanz por haberme prestado toda la ayuda posible para resolver gran parte de mis dudas y encaminarme hacia nuevas líneas de pensamiento. 
+
+También agradecer a mis compañeros Carlos Ortúñez Rojo y Guillermo Saldaña Suárez su amabilidad y paciencia al prestarse voluntarios para la realización de varios vídeos y autorizar su uso en este proyecto. 
+
+Finalmente, agradecer a mi gran compañero Jorge Gómez Ortíz por facilitarme su ordenador personal para poder realizar sobre él la aplicación de escritorio y a mi hermana Esther Núñez Calvo, por aguantarse la risa mientras me grababa realizando diferentes ejercicios. 
+
+
+\newpage\null\thispagestyle{empty}\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+
+
+\noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
+
+\noindent D. José Francisco Díez Pastor, D. José Luis Garrido Labrador y D. José Miguel Ramírez Sanz, profesor del departamento de Ingeniería Informática, área Lenguajes y Sistemas Informáticos.
+
+\noindent Expone:
+
+\noindent Que el alumno D. \nombre, con DNI 71314978M, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+
+\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
+
+\begin{center} %\large
+En Burgos, {\large \today}
+\end{center}
+
+\vfill\vfill\vfill
+
+% Author and supervisor
+\begin{minipage}{0.2\textwidth}
+\begin{flushleft} %\large
+Vº. Bº. del Tutor:\\[3cm]
+D. José Miguel Ramírez Sanz
+\end{flushleft}
+\end{minipage}
+\hfill
+% Author and supervisor
+\begin{minipage}{0.2\textwidth}
+\begin{flushleft} %\large
+Vº. Bº. del Tutor:\\[3cm]
+D. José Luis Garrido Labrador
+\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\textwidth}
+\begin{flushleft} %\large
+Vº. Bº. del co-tutor:\\[3cm]
+D. José Francisco Díez Pastor
+\end{flushleft}
+\end{minipage}
+\hfill
+
+\vfill
+
+% para casos con solo un tutor comentar lo anterior
+% y descomentar lo siguiente
+%Vº. Bº. del Tutor:\\[2cm]
+%D. nombre tutor
+
+
+\newpage\null\thispagestyle{empty}\newpage
+
+
+
+
+\frontmatter
+
+% Abstract en castellano
+\renewcommand*\abstractname{Resumen}
+\begin{abstract}
+Actualmente el mundo está caracterizado por un aumento de la esperanza de vida y una población cada vez más envejecida, esto repercute en un incremento de enfermedades, en concreto enfermedades neurodegenerativas, que es de lo que va a tratar este estudio. 
+La más común es el \textit{Alzheimer} y seguido de este trastorno se encuentra la enfermedad de \textit{Parkinson}, afectando a una de cada 100 personas mayores de 60 años ~\cite{priyadarshi2001environmental}. 
+
+La enfermedad de \textit{Parkinson} es un tipo de trastorno del movimiento que se produce como resultado de la pérdida de células cerebrales productoras de dopamina ~\cite{hirsch2016incidence}. Esta enfermedad causa temblores en manos, brazos, piernas, mandíbula y cara, una rigidez en las extremidades y tronco, lentitud de movimientos e inestabilidad postural, o deterioro del equilibrio y la coordinación ~\cite{wirdefeldt2011epidemiology}. 
+Es muy importante que el paciente realice una terapia rehabilitadora que le permita conservar lo máximo posible sus funciones motoras y locomotoras hasta su inevitable pérdida ~\cite{MOROZ2009S42}.
+Y es por esta razón que para poder permitir a los pacientes unas terapias asequibles y de buena calidad se han realizado numerosos estudios que abarcan el problema de desarrollar aplicaciones de ayuda para la enfermedad de \textit{Parkinson} ~\cite{wiki:mediPlus}.
+
+Este estudio parte de un trabajo previo realizado por los alumnos José Miguel Ramírez Sanz y José Luís Garrido Labrador. En su trabajo fin de máster se obtenía la descomposición de un vídeo en sus diferentes \textit{frames} y de cada uno de ellos se sacaba el esqueleto correspondiente. En este estudio se va a partir de la obtención de cada uno de los esqueletos, que serán almacenados en forma de posiciones, para su posterior análisis.
+
+La nueva funcionalidad añadida permite la identificación de ejercicios. A partir de una serie de vídeos grabados por pacientes y terapeutas, se realizará un análisis entre los movimientos del terapeuta y los de los pacientes. Una vez se haya obtenido el análisis de ambos vídeos, se deberá localizar el vídeo que realiza el terapeuta dentro de la secuencia de ejercicios que realiza el paciente. De esta manera se podrá observar como de correcto o preciso es el ejercicio que realiza el paciente. 
+
+Finalmente, para poder visualizar los resultados, se ha implementado una aplicación de escritorio en la que el usuario puede observar un recorte del ejercicio que realiza el paciente. 
+
+\end{abstract}
+
+\renewcommand*\abstractname{Descriptores}
+\begin{abstract}
+\textit{Visión artificial, Flujo de datos, Big Data, Rehabilitación, Parkinson, Procesamiento de imágenes, Investigación, Docker.} 
+\end{abstract}
+
+\clearpage
+
+% Abstract en inglés
+\renewcommand*\abstractname{Abstract}
+\begin{abstract}
+Actually the world is characterized by a life hope's increase and an older population, this has a direct impact into a disease's increase, specifically neurodegenerative diseases, this is what this study is going to be about.
+The most common disease is the \textit{Alzheimer} and besides this one, we have the \textit{Parkinson}, which affects to one of each 100 older than 60 years person ~\cite{priyadarshi2001environmental}.
+
+The Parkinson disease if a kind of movement's disorder which produces as a result of the loss of dopamine producing brain cells ~\cite{hirsch2016incidence}. This disease produces tremors in the hands, arms, legs, jaw and face, a rigidity in the extremities and the body, slower motions and postural instability, or loss of the balance and the coordination ~\cite{wirdefeldt2011epidemiology}.
+It's really important that the patient makes a rehabilitation therapy which will let him keep its motor and locomotor functions the best as possible until its unavoidable loss ~\cite{MOROZ2009S42}.
+This is the main reason to allow the patients have an affordable and high quality therapies there have been created many studies which develops applications to help the \textit{Parkinson} disease ~\cite{wiki:mediPlus}.
+
+This study starts from a previous job made by the students José Miguel Ramírez Sanz y José Luís Garrido Labrador. In their TFM they obtained the decomposition of a video in its differents frames and from each of this ones they get its corresponding skeleton. This study starts from the obtainment of each of the skeletons, which will be stored as possitions, for its further analysis.
+
+The new added functionality allows the identification of exercises. From a videos' series filmed by patients and therapists, there will be made an analysis between the therapist and patient's movements. When the have the analysis' results of both videos, there should be localized the therapist's video inside the exercise's sequence made by the patient. By this way there could be seen how correct or accurate is the patient's exercise.
+
+Finally, to be able to see the results, there has been implemented a desktop application in which the user can watch a clip of the patient's exercise.
+\end{abstract}
+
+\renewcommand*\abstractname{Keywords}
+\begin{abstract}
+\textit{Computer vision, Data flow, Big Data, Rehabilitation, Parkinson, Image processing, Research, Docker.}
+\end{abstract}
+
+\clearpage
+
+% Indices
+\tableofcontents
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+\clearpage
+
+\mainmatter
+\include{./tex/1_Introduccion}
+\include{./tex/2_Objetivos_del_proyecto}
+\include{./tex/3_Conceptos_teoricos}
+\include{./tex/4_Tecnicas_y_herramientas}
+\include{./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto}
+\include{./tex/6_Trabajos_relacionados}
+\include{./tex/7_Conclusiones_Lineas_de_trabajo_futuras}
+
+
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+
+\end{document}
