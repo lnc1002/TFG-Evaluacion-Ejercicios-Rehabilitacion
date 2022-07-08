@@ -51,3 +51,4 @@ Resultados de la clasificación de los ejercicios realizada.
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app1.PNG)
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app2.PNG)
 ![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Latex/img/app4.PNG)
+![](https://github.com/lnc1002/TFG-Evaluacion-Ejercicios-Rehabilitacion/blob/main/doc/Vieos/ClasificacionEjecicios.mov)
